@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enter Provider Information</title>
+<link rel="stylesheet" href="css/provider.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-content">
+            <div class="form-header">
+                <h1>Enter Provider Information</h1>
+            </div> 
+            <div class="photo-section">
+                <img src="placeholder.png" alt="Profile Photo">
+                <button type="button">Add profile photo</button>
+            </div>
+            <form action="#" method="post">
+                <div class="info-section">
+                    <div class="column">
+                        <label for="organization">Organization name</label>
+                        <input type="text" id="organization" name="organization">
+        
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone" name="phone">
+        
+                        <label for="bio">Provider Biography</label>
+                        <textarea id="bio" name="bio" placeholder="Add provider bio..."></textarea>
+                    </div>
+                    <div class="column">
+                        <label for="address">Street Address</label>
+                        <input type="text" id="address" name="address">
+        
+                        <label for="zip">Zip Code</label>
+                        <input type="text" id="zip" name="zip">
+        
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city">
+        
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state">
+        
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country">
+                    </div>
+                    <div class="column">
+                        <label for="resource-type">Resource Type</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="food" name="resource" value="food"> <label for="food">Food Pantry</label>
+                            <input type="checkbox" id="financial" name="resource" value="financial"> <label for="financial">Financial Services</label>
+                            <input type="checkbox" id="child" name="resource" value="child"> <label for="child">Child Care</label>
+                            <input type="checkbox" id="clothing" name="resource" value="clothing"> <label for="clothing">Clothing Drive</label>
+                            <input type="checkbox" id="other" name="resource" value="other"> <label for="other">Other</label>
+                        </div>
+        
+                        <label for="hours">Hours of Operation</label>
+                        <input type="text" id="hours" name="hours" placeholder="00:00 to 00:00" multiple>
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <button type="submit">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

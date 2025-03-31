@@ -15,7 +15,7 @@ body {
 }
 
 .form-header h1 {
-    text-align: left;
+    text-align: center;
     color: #333;
 }
 
@@ -76,7 +76,7 @@ body {
 
 .form-footer button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #000000;
     color: white;
     border: none;
     cursor: pointer;

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Information Form</title>
+<link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+<div class="container">
+    <h1>Enter Client Information</h1>
+    <div class="photo">
+        <img src="placeholder.png" alt="Profile Photo">
+        <button>Add profile photo</button>
+    </div>
+    <div class="form">
+        <div class="left">
+            <div class="field">
+                <label for="username">Username</label>
+                <input type="text" id="username">
+            </div>
+            <div class="field">
+                <label for="phone">Phone number</label>
+                <input type="text" id="phone">
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="consent">
+                <label for="consent">I consent to the collection and processing of my data by ResourceLink</label>
+            </div>
+        </div>
+        <div class="right">
+            <div class="section">
+                <h2>Demographic Information</h2>
+                <fieldset>
+                    <legend>Ethnicity</legend>
+                    <label><input type="radio" name="ethnicity">White/Caucasian</label>
+                    <label><input type="radio" name="ethnicity"> Asian</label>
+                    <label><input type="radio" name="ethnicity">Native Hawaiian/Pacific Islander</label>
+                    <label><input type="radio" name="ethnicity">Hispanic/Latino</label>
+                    <label><input type="radio" name="ethnicity">Native American</label>
+                    <label><input type="radio" name="ethnicity">African American</label>
+                    <label><input type="radio" name="ethnicity">Other/Prefer not to answer</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Gender</legend>
+                    <label><input type="radio" name="gender">Male</label>
+                    <label><input type="radio" name="gender">Female</label>
+                    <label><input type="radio" name="gender">Other/Prefer not to answer</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Age</legend>
+                    <label><input type="radio" name="age">Under 18</label>
+                    <label><input type="radio" name="age">18-30</label>
+                    <label><input type="radio" name="age">31-50</label>
+                    <label><input type="radio" name="age">51+</label>
+                    <label><input type="radio" name="age">Prefer not to answer</label>
+                </fieldset>
+            </div>
+            <div class="section">
+                <h2>Education</h2>
+                <label><input type="radio" name="education"> Less than high school</label>
+                <label><input type="radio" name="education"> High school/GED</label>
+                <label><input type="radio" name="education"> Bachelors degree</label>
+                <label><input type="radio" name="education"> Masters/Professional degree</label>
+                <label><input type="radio" name="education"> Technical certification</label>
+                <label><input type="radio" name="education"> Other/Prefer not to say</label>
+            </div>
+            <div class="section">
+                <h2>Employment</h2>
+                <label><input type="radio" name="employment"> Full-time</label>
+                <label><input type="radio" name="employment"> Part-time</label>
+                <label><input type="radio" name="employment"> Contract</label>
+                <label><input type="radio" name="employment"> Retired</label>
+                <label><input type="radio" name="employment"> Unemployed/unable to work</label>
+                <label><input type="radio" name="employment"> Other/Prefer not to say</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-footer">
+        <button class="back">Back</button>
+        <button class="create">Create Account</button>
+    </div>
+</div>
+</body>
+</html>

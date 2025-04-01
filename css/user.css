@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F2D0A9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #F2D0A9;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.photo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.photo img {
+    display: block;
+    margin: 20px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.photo button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #999;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.left, .right {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.field, .checkbox, .section {
+    margin-bottom: 20px;
+}
+
+.field label, .checkbox label, section h2 {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.field input[type="text"], .checkbox input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #e8e8e8;
+}
+
+.right input[type="radio"] {
+    margin-right: 10px; 
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: flex-start; 
+}
+
+.checkbox input[type="checkbox"] {
+    margin-right: 10px; 
+}
+
+.checkbox label {
+    margin: 0; 
+    flex-grow: 1; 
+    white-space: nowrap; 
+}
+.back, .create {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 49%;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.create {
+    background-color: #555;
+    float: right;
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+fieldset label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    margin-bottom: 10px;
+}
+
+.section label {
+    display: block; 
+    margin-left: 20px; 
+    font-size: 16px; 
+}
+
+input[type="radio"] {
+    margin-right: 10px; 
+}

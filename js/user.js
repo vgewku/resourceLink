@@ -9,6 +9,8 @@ admin.initializeApp({
   databaseURL: "https://resourcelink-80257-default-rtdb.firebaseio.com"
 });
 
+const db = admin.database();
+const clientDB = db.ref('client');
   
   function submitData() {
     var userName = document.getElementById('username').value;

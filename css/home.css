@@ -7,25 +7,25 @@ body {
 
 header {
     background-color: #D48B94;
-    padding: 10px 20px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* for navigation bar*/
 nav {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 61%;
     align-items: center;
 }
 
 .nav-left .logo {
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight: bold ;
     color: black;
 }
-
 
 .nav-right {
     display: flex;
@@ -43,7 +43,7 @@ nav {
     width: 30px;
     height: 30px;
     background-color: #F5EDE0;
-    border-radius: 50%;
+    border-radius: 60%;
 }
 
 .hero {
@@ -51,6 +51,7 @@ nav {
     padding: 50px 20px;
 }
 
+/* logo box */
 .hero-content .logo-box {
     background-color: #F5EDE0;
     width: 100px;
@@ -65,6 +66,7 @@ nav {
     margin: 20px 0;
 }
 
+/* make this a button */
 .resource-btn {
     background-color: #7E9A9A;
     color: white;
@@ -77,12 +79,12 @@ nav {
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding: 40px;
+    padding: 50px;
 }
 
 .box {
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 250px;
 }
 
 .box.light {
@@ -98,7 +100,7 @@ nav {
 }
 
 .about, .commitment {
-    padding: 40px 20px;
+    padding: 30px 20px;
     max-width: 800px;
     margin: auto;
 }
@@ -114,7 +116,7 @@ nav {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .commitment {

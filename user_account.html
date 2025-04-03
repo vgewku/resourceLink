@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Client Information Form</title>
 <link rel="stylesheet" href="css/user.css">
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+<script src="js/user.js"></script>
 </head>
 <body>
 <div class="container">
@@ -78,8 +81,9 @@
     </div>
     
     <div class="form-footer">
-        <button class="back">Back</button>
-        <button class="create">Create Account</button>
+        
+        <a href="create_account.html" class="back">Back</a>
+        <button class="create" onclick="submitData()">Create Account</button>
     </div>
 </div>
 </body>

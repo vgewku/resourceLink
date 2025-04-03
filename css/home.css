@@ -51,10 +51,9 @@ nav {
     padding: 50px 20px;
 }
 
-.hero-content .logo-box {
-    background-color: #F5EDE0;
+.hero-content .logo-box img{
     width: 100px;
-    height: 100px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,3 +120,4 @@ nav {
     background-color: white;
     padding: 40px;
 }
+

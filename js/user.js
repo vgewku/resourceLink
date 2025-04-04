@@ -1,7 +1,8 @@
+/*
+
 var admin = require("firebase-admin");
 
-var serviceAccount = require("mytran/Documents/ISTM 4210/resourcelink-80257-firebase-adminsdk-fbsvc-bbee546f41.json");
-
+var serviceAccount = require("C:/Users/valer/Documents/ISTM 4210 Capstone/resourcelink-80257-firebase-adminsdk-fbsvc-c54a358f87.json");
 
 //Initialize Firebase Admin SDK
 admin.initializeApp({
@@ -11,7 +12,21 @@ admin.initializeApp({
 
 const db = admin.database();
 const clientDB = db.ref('client');
-  
+  */
+//Firebase Frontend Configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDNTrGx7vfJDB6mQL7XBSPo2DqCSACVjDM",
+  authDomain: "resourcelink-80257.firebaseapp.com",
+  databaseURL: "https://resourcelink-80257-default-rtdb.firebaseio.com",
+  projectId: "resourcelink-80257",
+  storageBucket: "resourcelink-80257.firebasestorage.app",
+  messagingSenderId: "249943715055",
+  appId: "1:249943715055:web:03022ed87d6a42acdcbf1a"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+
   function submitData() {
     var userName = document.getElementById('username').value;
     var phone = document.getElementById('phone').value;

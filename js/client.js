@@ -9,10 +9,10 @@ const firebaseConfig = {
     appId: "1:249943715055:web:03022ed87d6a42acdcbf1a"
   };
   
-  firebase.initializeApp(firebaseConfig);
-  
+//firebase.initializeApp(firebaseConfig);
+/*  
 
-function submitDataClient() {
+function submitDataProvider() {
     var organization = document.getElementById('organization').value;
     var phone = document.getElementById('phone').value;
     var bio = document.getElementById('bio').value;
@@ -38,9 +38,61 @@ function submitDataClient() {
         country: country,
         resources: resources,
         hours: hours
-    }).then(function() {
-        alert('Provider information saved successfully.');
-    }).catch(function(error) {
-        alert('Failed to save provider information. ' + error);
+    }, function(error) {
+        if (error) {
+          alert('Data could not be saved.' + error);
+        } else {
+          alert('Data saved successfully.');
+        }
+      }
+
+);
+}
+*/
+
+function submitDataProvider() {
+    const organization = document.getElementById('organization').value;
+    const phone = document.getElementById('phone').value;
+    const bio = document.getElementById('bio').value;
+    const address = document.getElementById('address').value;
+    const zip = document.getElementById('zip').value;
+    const city = document.getElementById('city').value;
+    const state = document.getElementById('state').value;
+    const country = document.getElementById('country').value;
+    const resources = [];
+    document.querySelectorAll('input[name="resource"]:checked').forEach((checkbox) => {
+        resources.push(checkbox.value);
+    });
+    const hours = document.getElementById('hours').value;
+
+    const data = {
+        organization,
+        phone,
+        bio,
+        address,
+        zip,
+        city,
+        state,
+        country,
+        resources,
+        hours
+    };
+
+    fetch('http://localhost:3000/submit-providers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then((response) => {
+        if (!response.ok) throw new Error("Network response was not ok.");
+        return response.text();
+    })
+    .then((msg) => {
+        alert(msg);
+    })
+    .catch((error) => {
+        alert('Failed to save provider information. ' + error.message);
     });
 }

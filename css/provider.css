@@ -81,3 +81,11 @@ body {
     border: none;
     cursor: pointer;
 }
+
+.form-footer a {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

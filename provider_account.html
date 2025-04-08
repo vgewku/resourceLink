@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Enter Provider Information</title>
 <link rel="stylesheet" href="css/provider.css">
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+<script src="js/client.js"></script>
 </head>
 <body>
     <div class="form-container">
@@ -59,10 +62,12 @@
                         <input type="text" id="hours" name="hours" placeholder="00:00 to 00:00" multiple>
                     </div>
                 </div>
+
                 <div class="form-footer">
-                    <button type="back">Back</button>
-                    <button type="payment">Continue to payment</button>
+                    <a href="create_account.html" class="back">Back</a>
+                    <button class="payment" onclick="submitDataClient()">Continue to payment</button>
                 </div>
+            
             </form>
         </div>
     </div>

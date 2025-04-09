@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ResourceLink Login</title>
-<link rel="stylesheet" href="css/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResourceLink Login</title>
+  <link rel="stylesheet" href="css/login.css">
+  
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+  <script defer src="js/login.js"></script>
 </head>
 <body>
-<div class="container">
-    <div class="left-panel">
-        <div class="logo">ResourceLink</div>
-        <p>Bridging Gaps, Building Futures</p>
-    </div>
-    <div class="right-panel">
-        <form>
-            <h1>Log in</h1>
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username">
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password">
-            </div>
-            <div class="input-group">
-                <button type="submit">Log in</button>
-            </div>
-            <a href="#">Forgot your password?</a>
-            <a href="#">Create a new account</a>
-        </form>
-    </div>
-</div>
+  <div class="container">
+      <div class="left-panel">
+          <div class="logo">ResourceLink</div>
+          <p>Bridging Gaps, Building Futures</p>
+      </div>
+      <div class="right-panel">
+          <!-- Ensure the form has an 'id' if you need to reference it in JavaScript and 'action' if needed -->
+          <form id="loginForm" action="#" method="POST">
+              <h1>Log in</h1>
+              <div class="input-group">
+                  <label for="username">Username (Email)</label>
+                  <input type="text" id="username" name="username" required>
+              </div>
+              <div class="input-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" required>
+              </div>
+              <div class="input-group">
+                  <!-- Change button type to 'submit' -->
+                  <button type="submit">Log in</button>
+              </div>
+              <a href="#">Forgot your password?</a>
+              <a href="create_account.html">Create a new account</a>
+          </form>
+      </div>
+  </div>
 </body>
 </html>

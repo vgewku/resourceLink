@@ -50,6 +50,14 @@ button {
     border: none;
     cursor: pointer;
 }
+button:hover {
+    background-color: #e2e2e2; 
+  }
+  
+  button.active {
+    background-color: #808080; 
+    color: #fff; 
+  }
 
 a {
     display: block;

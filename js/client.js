@@ -8,49 +8,9 @@ const firebaseConfig = {
     messagingSenderId: "249943715055",
     appId: "1:249943715055:web:03022ed87d6a42acdcbf1a"
   };
-  
-//firebase.initializeApp(firebaseConfig);
-/*  
 
 function submitDataProvider() {
-    var organization = document.getElementById('organization').value;
-    var phone = document.getElementById('phone').value;
-    var bio = document.getElementById('bio').value;
-    var address = document.getElementById('address').value;
-    var zip = document.getElementById('zip').value;
-    var city = document.getElementById('city').value;
-    var state = document.getElementById('state').value;
-    var country = document.getElementById('country').value;
-    var resources = [];
-    document.querySelectorAll('input[name="resource"]:checked').forEach((checkbox) => {
-        resources.push(checkbox.value);
-    });
-    var hours = document.getElementById('hours').value;
 
-    firebase.database().ref('providers').push({
-        organization: organization,
-        phone: phone,
-        bio: bio,
-        address: address,
-        zip: zip,
-        city: city,
-        state: state,
-        country: country,
-        resources: resources,
-        hours: hours
-    }, function(error) {
-        if (error) {
-          alert('Data could not be saved.' + error);
-        } else {
-          alert('Data saved successfully.');
-        }
-      }
-
-);
-}
-*/
-
-function submitDataProvider() {
     const organization = document.getElementById('organization').value;
     const phone = document.getElementById('phone').value;
     const bio = document.getElementById('bio').value;

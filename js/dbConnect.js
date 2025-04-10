@@ -48,28 +48,28 @@ app.post('/login', async (req, res) => {
 });
 
 // Example: Endpoint to handle data submission (called from the frontend)
-// app.post('/submit-data', (req, res) => {
-//   const clientData = req.body;  // Expecting JSON data from frontend
-//   clientDB.push(clientData, (error) => {
-//     if (error) {
-//       res.status(500).send('Error saving data');
-//     } else {
-//       res.status(200).send('Data saved successfully');
-//     }
-//   });
-// });
+ app.post('/submit-data', (req, res) => {
+   const clientData = req.body;  // Expecting JSON data from frontend
+   clientDB.push(clientData, (error) => {
+     if (error) {
+       res.status(500).send('Error saving data');
+     } else {
+       res.status(200).send('Data saved successfully');
+     }
+   });
+ });
 
-// app.post('/submit-providers', (req, res) => {
-//   const providerData = req.body;
-//   providerDB.push(providerData, (error) => {
-//     if (error) {
-//       res.status(500).send('Error saving provider data');
-//     } else {
-//       res.status(200).send('Provider data saved successfully');
-//     }
-//   });
-// });
-
+ app.post('/submit-providers', (req, res) => {
+   const providerData = req.body;
+   providerDB.push(providerData, (error) => {
+     if (error) {
+       res.status(500).send('Error saving provider data');
+     } else {
+       res.status(200).send('Provider data saved successfully');
+     }
+   });
+ });
+/*
 app.post('/submit-data', async (req, res) => {
   const clientData = req.body;
   const { email, password } = clientData;
@@ -113,7 +113,7 @@ app.post('/submit-providers', async (req, res) => {
     res.status(500).send('Error creating provider account');
   }
 });
-
+*/
 // app.post('/submit-account', async (req, res) => {
 //   const { email, password } = req.body;
 

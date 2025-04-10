@@ -1,125 +1,142 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #F2D0A9;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f4ef;
+    color: #333;
+    line-height: 1.6;
 }
 
 header {
-    background-color: #D48B94;
-    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px 30px;
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* for navigation bar*/
-nav {
-    display: flex;
-    justify-content: space-between;
-    width: 61%;
-    align-items: center;
-}
-
-.nav-left .logo {
-    font-size: 1.5em;
-    font-weight: bold ;
-    color: black;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-}
-
-.nav-right a {
-    text-decoration: none;
-    color: black;
+.logo {
+    font-size: 1.8em;
     font-weight: bold;
-    margin: 0 10px;
+    color: #d48b94;
 }
 
-.nav-right .profile-icon {
-    width: 30px;
-    height: 30px;
-    background-color: #F5EDE0;
-    border-radius: 60%;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #7e9a9a;
+}
+
+.profile-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #f5ede0;
+    border-radius: 50%;
 }
 
 .hero {
     text-align: center;
-    padding: 50px 20px;
+    padding: 100px 20px;
+    background: linear-gradient(to right, #fbe6d4, #f7f1e6);
 }
 
-.hero-content .logo-box {
-    background-color: #F5EDE0;
-    width: 100px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
+.logo-box img {
+    width: 70px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
 }
 
-.hero-content h2 {
-    margin: 20px 0;
+.logo-box img:hover {
+    transform: scale(1.05);
 }
 
-/* make this a button */
+.hero h1 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
 .resource-btn {
-    background-color: #7E9A9A;
+    background-color: #7e9a9a;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
-    cursor: pointer;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1em;
+    display: inline-block;
+    transition: background-color 0.3s;
 }
 
-.info-grid {
+.resource-btn:hover {
+    background-color: #5f7d7d;
+}
+
+.info-section {
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding: 50px;
+    padding: 60px 20px;
 }
 
-.box {
+.info-card {
+    background-color: #d48b94;
+    color: white;
+    padding: 30px;
     width: 200px;
-    height: 250px;
-}
-
-.box.light {
-    background-color: #F5EDE0;
-}
-
-.box.medium {
-    background-color: #D48B94;
-}
-
-.box.dark {
-    background-color: #c1ac9a;
+    height: 150px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    text-align: center;
 }
 
 .about, .commitment {
-    padding: 30px 20px;
     max-width: 800px;
-    margin: auto;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .about h2, .commitment h2 {
     font-size: 1.8em;
-    font-weight: bold;
+    color: #d48b94;
+    margin-bottom: 15px;
 }
 
 .contact-btn {
-    background-color: #7E9A9A;
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #7e9a9a;
     color: white;
     padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin-top: 30px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
 }
 
-.commitment {
-    background-color: white;
-    padding: 40px;
+.contact-btn:hover {
+    background-color: #5f7d7d;
 }
-

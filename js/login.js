@@ -20,14 +20,14 @@ if (!firebase.apps.length) {
 
 // Get references to the form elements
 const loginForm = document.getElementById('loginForm');
-const usernameInput = document.getElementById('username');
+const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 
 // Handle form submission
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault(); // Prevent the native form submission
 
-    const email = usernameInput.value.trim();
+    const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
 
     // Sign in with Firebase Authentication

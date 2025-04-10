@@ -7,17 +7,21 @@
 <link rel="stylesheet" href="css/user.css">
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
-<script src="js/user.js"></script>
+<script src="js/client.js"></script>
 </head>
 <body>
 <div class="container">
     <h1>Enter Client Information</h1>
-    <div class="photo">
-        <img src="placeholder.png" alt="Profile Photo">
-        <button>Add profile photo</button>
-    </div>
     <div class="form">
         <div class="left">
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="text" id="email">
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="text" id="password">
+            </div>
             <div class="field">
                 <label for="username">Username</label>
                 <input type="text" id="username">

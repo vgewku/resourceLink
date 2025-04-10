@@ -1,19 +1,4 @@
-/*
 
-var admin = require("firebase-admin");
-
-var serviceAccount = require("C:/Users/valer/Documents/ISTM 4210 Capstone/resourcelink-80257-firebase-adminsdk-fbsvc-c54a358f87.json");
-
-//Initialize Firebase Admin SDK
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://resourcelink-80257-default-rtdb.firebaseio.com"
-});
-
-const db = admin.database();
-const clientDB = db.ref('client');
-  */
-//Firebase Frontend Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDNTrGx7vfJDB6mQL7XBSPo2DqCSACVjDM",
   authDomain: "resourcelink-80257.firebaseapp.com",

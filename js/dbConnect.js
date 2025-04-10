@@ -72,12 +72,12 @@ app.post('/login', async (req, res) => {
 
 app.post('/submit-data', async (req, res) => {
   const clientData = req.body;
-  const { username, password } = clientData;
+  const { email, password } = clientData;
 
   try {
     // Create user in Firebase Authentication
     const userRecord = await admin.auth().createUser({
-      email: username,
+      email: email,
       password: password,
     });
 
@@ -94,12 +94,12 @@ app.post('/submit-data', async (req, res) => {
 
 app.post('/submit-providers', async (req, res) => {
   const providerData = req.body;
-  const { username, password } = providerData;
+  const { email, password } = providerData;
 
   try {
     // Create user in Firebase Authentication
     const userRecord = await admin.auth().createUser({
-      email: username,
+      email: email,
       password: password,
     });
 
@@ -113,6 +113,34 @@ app.post('/submit-providers', async (req, res) => {
     res.status(500).send('Error creating provider account');
   }
 });
+
+// app.post('/submit-account', async (req, res) => {
+//   const { email, password } = req.body;
+
+//   if (!email || !password) {
+//       return res.status(400).send('Email and password are required.');
+//   }
+
+//   try {
+//       // Create user with email and password in Firebase Authentication
+//       const userRecord = await admin.auth().createUser({
+//           email: email,
+//           password: password
+//       });
+
+//       // Optional: Save additional user information in Firebase Realtime Database
+//       // Here you can save additional info, but not the password.
+//       await db.ref('users').push({
+//           userId: userRecord.uid,
+//           email: email  // Store only non-sensitive data
+//       });
+
+//       return res.status(201).send('User account created successfully.');
+//   } catch (error) {
+//       console.error('Error creating user account:', error);
+//       return res.status(500).send('Failed to create user account.');
+//   }
+// });
 
 
 // Start the server

@@ -30,7 +30,6 @@ firebase.initializeApp(firebaseConfig);
 function submitData() {
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
-  var userName = document.getElementById('username').value;
   var phone = document.getElementById('phone').value;
   var consent = document.getElementById('consent').checked ? 'Yes' : 'No';
   var ethnicity = document.querySelector('input[name="ethnicity"]:checked').value;
@@ -42,7 +41,6 @@ function submitData() {
   const data = {
     email: email,
     password, password,
-    userName: userName,
     phoneNumber: phone,
     dataConsent: consent,
     ethnicity: ethnicity,

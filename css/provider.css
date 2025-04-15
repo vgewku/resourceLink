@@ -38,7 +38,7 @@ body {
     margin: 10px 0 5px;
 }
 
-.column input[type="text"], .column input[type="tel"], .column textarea {
+.column input[type="text"], .column input[type="tel"],.column input[type="password"], .column textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;

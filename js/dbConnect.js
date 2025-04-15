@@ -20,32 +20,8 @@ const db = admin.database();
 const clientDB = db.ref('clients');
 const providerDB = db.ref('providers');
 
-// Endpoint to handle user login using Firebase Authentication
-app.post('/login', async (req, res) => {
-  const { email, password } = req.body;
 
-  try {
-    // Firebase Authentication: Verify user's email and password
-    const userRecord = await admin.auth().getUserByEmail(email);
-    
-    // Check if user exists and password is correct (authentication is handled by Firebase)
-    
 
-    // If the login is successful, you can generate a custom Firebase token:
-    const firebaseToken = await admin.auth().createCustomToken(userRecord.uid);
-
-    res.status(200).send({
-      message: 'Login successful',
-      firebaseToken: firebaseToken
-    });
-  } catch (error) {
-    console.error("Login Error: ", error);
-    res.status(400).send({
-      message: 'Login failed',
-      error: error.message
-    });
-  }
-});
 
 // Example: Endpoint to handle data submission (called from the frontend)
  app.post('/submit-data', (req, res) => {
@@ -69,78 +45,6 @@ app.post('/login', async (req, res) => {
      }
    });
  });
-/*
-app.post('/submit-data', async (req, res) => {
-  const clientData = req.body;
-  const { email, password } = clientData;
-
-  try {
-    // Create user in Firebase Authentication
-    const userRecord = await admin.auth().createUser({
-      email: email,
-      password: password,
-    });
-
-    // Save additional data to Firebase Realtime Database
-    clientData.userId = userRecord.uid; // Store Firebase UID for user
-    await clientDB.push(clientData);
-
-    res.status(200).send('Client account created successfully!');
-  } catch (error) {
-    console.error('Error creating account:', error);
-    res.status(500).send('Error creating client account');
-  }
-});
-
-app.post('/submit-providers', async (req, res) => {
-  const providerData = req.body;
-  const { email, password } = providerData;
-
-  try {
-    // Create user in Firebase Authentication
-    const userRecord = await admin.auth().createUser({
-      email: email,
-      password: password,
-    });
-
-    // Save additional data to Firebase Realtime Database
-    providerData.userId = userRecord.uid; // Store Firebase UID for user
-    await providerDB.push(providerData);
-
-    res.status(200).send('Provider account created successfully!');
-  } catch (error) {
-    console.error('Error creating account:', error);
-    res.status(500).send('Error creating provider account');
-  }
-});
-*/
-// app.post('/submit-account', async (req, res) => {
-//   const { email, password } = req.body;
-
-//   if (!email || !password) {
-//       return res.status(400).send('Email and password are required.');
-//   }
-
-//   try {
-//       // Create user with email and password in Firebase Authentication
-//       const userRecord = await admin.auth().createUser({
-//           email: email,
-//           password: password
-//       });
-
-//       // Optional: Save additional user information in Firebase Realtime Database
-//       // Here you can save additional info, but not the password.
-//       await db.ref('users').push({
-//           userId: userRecord.uid,
-//           email: email  // Store only non-sensitive data
-//       });
-
-//       return res.status(201).send('User account created successfully.');
-//   } catch (error) {
-//       console.error('Error creating user account:', error);
-//       return res.status(500).send('Failed to create user account.');
-//   }
-// });
 
 
 // Start the server

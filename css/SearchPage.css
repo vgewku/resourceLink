@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f2d0a9;
+    background-color: #f9f4ef;
   }
   
   .navbar {
@@ -49,7 +49,7 @@ body {
   .filter-section {
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    background: #fbe2c1;
+    background: #f9f4ef;
     padding: 10px;
   }
   

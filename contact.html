@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - ResourceLink</title>
+    <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">ResourceLink</div>
+            <div class="nav-links">
+                <a href="homepage.html">Home</a>
+                <a href="SearchPage.html">Search</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div>
+                <img src="images/user.png" alt="User Icon" style="background: white; border-radius: 50%; width: 32px; height: 32px;"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="about" style="margin-top: 40px;">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, suggestions, or need support, please feel free to reach out using the form below.</p>
+        <form action="#" method="post" style="margin-top: 20px;">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="6" required></textarea><br><br>
+
+            <button type="submit" class="contact-btn">Send Message</button>
+        </form>
+    </section>
+</body>
+</html>

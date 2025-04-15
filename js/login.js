@@ -33,12 +33,11 @@ loginForm.addEventListener('submit', (event) => {
     // Sign in with Firebase Authentication
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            // Handle successful authentication here
             console.log('Logged in user:', userCredential.user);
-            // Optionally redirect the user or update the UI
-        })
-        .catch((error) => {
-            console.error('Login error:', error);
-            alert('Failed to login: ' + error.message); // Provide user-friendly error messages
-        });
+            // Redirect or fetch user data
+            window.location.href = 'searchpage.html'; 
+    })
+    .catch((error) => {
+        alert('Failed to login: ' + error.message);
+    });
 });

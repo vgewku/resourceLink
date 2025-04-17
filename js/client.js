@@ -50,6 +50,7 @@ function submitData() {
     employmentStatus: employment
   };
 
+  // submits data to the backend server
   fetch('http://localhost:3000/submit-data', {
     method: 'POST',
     headers: {

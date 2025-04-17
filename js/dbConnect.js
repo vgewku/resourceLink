@@ -21,30 +21,87 @@ const db = admin.database();
 const clientDB = db.ref('clients');
 const providerDB = db.ref('providers');
 
-
-
-
 // Example: Endpoint to handle data submission (called from the frontend)
- app.post('/submit-data', (req, res) => {
-   const clientData = req.body;  // Expecting JSON data from frontend
-   clientDB.push(clientData, (error) => {
-     if (error) {
-       res.status(500).send('Error saving data');
-     } else {
-       res.status(200).send('Data saved successfully');
-     }
-   });
+// Submit data for Client
+ app.post('/submit-data', async (req, res) => {
+   const { email, password, phoneNumber, dataConsent, ethnicity, gender, age, education, employmentStatus } = req.body; // Expecting JSON data from frontend
+   const clientData = {
+    email: email,
+    phoneNumber: phoneNumber,
+    dataConsent: dataConsent,
+    ethnicity: ethnicity,
+    gender: gender,
+    age: age,
+    education: education,
+    employmentStatus: employmentStatus
+  };
+
+   try {
+    // Create a new user with Firebase Authentication
+    const userRecord = await admin.auth().createUser({
+      email: email,
+      password: password,
+    });
+    console.log("Client created on Firebase Auth")
+    
+    // After creating user in auth, push data to DB
+    clientDB.push(clientData, (error) => {
+        if (error) {
+          res.status(500).send('Error saving data');
+        } else {
+          console.log("Client created on Firebase DB")
+          res.status(200).send('Client was created succesfully');
+        }
+      }
+    )
+
+   } catch (error) {
+    console.error("Error in creating Client or storing Client", error)
+    res.status(500).json({ message: 'Error in creating Client or storing Client.', error: error.message });
+   }
  });
 
- app.post('/submit-providers', (req, res) => {
-   const providerData = req.body;
-   providerDB.push(providerData, (error) => {
-     if (error) {
-       res.status(500).send('Error saving provider data');
-     } else {
-       res.status(200).send('Provider data saved successfully');
-     }
-   });
+ // Submit data for Providers
+ app.post('/submit-providers', async (req, res) => {
+   const { email, password, organization, phone, bio, address, zip, city, state, country, resources, hours } = req.body; // Expecting JSON data from frontend
+   const providerData = {
+    email: email,
+    password: password,
+    organization: organization,
+    phone: phone,
+    bio: bio,
+    address: address,
+    zip: zip,
+    city: city,
+    state: state,
+    country: country,
+    resources: resources,
+    hours: hours
+   }
+
+   try {
+    // Create a new user with Firebase Authentication
+    const userRecord = await admin.auth().createUser({
+      email: email,
+      password: password,
+    });
+    console.log("Provider created on Firebase Auth")
+    
+    // After creating user in auth, push data to DB
+    providerDB.push(providerData, (error) => {
+        if (error) {
+          res.status(500).send('Error saving data');
+        } else {
+          console.log("Provider created on Firebase DB")
+          res.status(200).send('Provider was created succesfully');
+        }
+      }
+    )
+
+   } catch (error) {
+    console.error("Error in creating Provider or storing Provider", error)
+    res.status(500).json({ message: 'Error in creating Provider or storing Provider.', error: error.message });
+   }
  });
 
 

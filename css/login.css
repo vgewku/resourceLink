@@ -45,7 +45,7 @@ button {
 }
 
 button {
-    background-color: black;
+    background-color: #5f7d7d;
     color: white;
     border: none;
     cursor: pointer;
@@ -55,5 +55,5 @@ a {
     display: block;
     text-align: center;
     margin-top: 20px;
-    color: #fff; 
+    /* color: #fff;  */
 }

@@ -12,11 +12,11 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: auto; /* adjust from 90% to auto for better spacing */
+    height: auto; 
     width: 80%;
-    max-width: 1200px; /* Optionally cap the max width */
+    max-width: 1200px;
     padding: 20px;
-    margin: 20px auto; /* Ensures centering with margin */
+    margin: 20px auto; 
 }
 
 .content {
@@ -24,18 +24,18 @@ body, html {
     justify-content: space-around;
     flex: 1;
     align-items: center;
-    margin-bottom: 20px; /* Additional space before buttons */
+    margin-bottom: 20px; 
 }
 
 .overview, .paypal {
     flex: 1;
     margin: 0 10px;
     background: #F2D0A9;
-    padding: 40px; /* Increased padding for larger boxes */
+    padding: 40px; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border: 1px solid #ccc;
-    min-width: 400px; /* Increased minimum width */
-    max-width: 600px; /* Adjusted max width for consistency */
+    min-width: 400px; 
+    max-width: 600px; 
 }
 
 h1 {
@@ -45,48 +45,53 @@ h1 {
 }
 
 .item, .paypal-integration {
-    padding: 20px; /* More internal space */
+    padding: 20px; 
     display: flex;
     align-items: center;
 }
 
 .item-image {
-    width: 200px; /* Larger image area */
-    height: 120px; /* Larger image area */
+    width: 200px; 
+    height: 120px; 
     background: #eee;
     margin-right: 20px;
 }
 
 .item-details p, .paypal-integration p {
     margin: 5px 0;
-    font-size: 18px; /* Larger text for details */
+    font-size: 18px; 
 }
 
 .paypal-button {
-    padding: 15px 30px; /* Bigger button */
-    background-color: #333;
+    padding: 15px 30px; 
+    background-color: #99C1B9;
     color: white;
     border: none;
     cursor: pointer;
     width: 100%; 
-    font-size: 18px; /* Larger button text */
+    font-size: 18px; 
 }
 
 .buttons {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    color: white;
+}
+
+a {
+    color: white;
 }
 
 button {
-    padding: 15px 30px; /* Larger buttons */
-    background-color: #333;
+    padding: 15px 30px; 
+    background-color: #5f7d7d;
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 18px; /* Larger text on buttons */
+    font-size: 18px; 
 }
 
 button.create {
-    background-color: #555;
+    background-color: #5f7d7d;
 }

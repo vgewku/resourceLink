@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resource Search</title>
     <link rel="stylesheet" href="css/resourcesearch.css">
+   
 </head>
 <body>
     <header>
@@ -32,7 +33,7 @@
             <p>Address: 2121 1st St. NW<br>Washington DC 2052</p>
             <div class="rating">
                 <span>★★★★★</span> 483 Reviews
-        </div>
+            </div>
             <p>Provider bio: Empowering the community through accessible, high-quality resources that foster education, health, and economic opportunity. We believe that everyone—regardless of background or circumstance—deserves the tools to build a better future..</p>
             <div class="hours">
                 <h3>Hours of Operation</h3>
@@ -46,8 +47,22 @@
         </div>
             <div class="review-box">
                 <h3>Leave a Review:</h3>
-                <textarea placeholder="Add review..."></textarea>
-                <button>Submit</button>
+                    <!-- Star Rating -->
+                    <div class="stars" id="starContainer">
+                        <span class="star" data-value="1">&#9733;</span>
+                        <span class="star" data-value="2">&#9733;</span>
+                        <span class="star" data-value="3">&#9733;</span>
+                        <span class="star" data-value="4">&#9733;</span>
+                        <span class="star" data-value="5">&#9733;</span>
+                    </div>
+                  
+                    <div class="rating-value" id="ratingDisplay">Rating: 0</div>
+                
+                    <!-- Review Textbox -->
+                    <textarea placeholder="Write your review here..."></textarea>
+                
+                    <!-- Submit Button -->
+                    <button type="submit">Submit Review</button>
             </div>
         </div>
     </section>
@@ -64,5 +79,7 @@
             <p>Client Review: Thanks to RiseWell, I have had the opportunity to find more educational resources for my children! However, I would like if they can expand more resources for the community!</p>
         </div>
     </section>
+
+    <script src="js/review.js"></script>
 </body>
 </html>

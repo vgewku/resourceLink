@@ -38,58 +38,68 @@
 //   });
 
 
-
+// Configs
 const firebaseConfig = {
-    apiKey: "AIzaSyDNTrGx7vfJDB6mQL7XBSPo2DqCSACVjDM",
-    authDomain: "resourcelink-80257.firebaseapp.com",
-    databaseURL: "https://resourcelink-80257-default-rtdb.firebaseio.com",
-    projectId: "resourcelink-80257",
-    storageBucket: "resourcelink-80257.appspot.com",
-    messagingSenderId: "249943715055",
-    appId: "1:249943715055:web:03022ed87d6a42acdcbf1a"
+  apiKey: "AIzaSyDNTrGx7vfJDB6mQL7XBSPo2DqCSACVjDM",
+  authDomain: "resourcelink-80257.firebaseapp.com",
+  databaseURL: "https://resourcelink-80257-default-rtdb.firebaseio.com",
+  projectId: "resourcelink-80257",
+  storageBucket: "resourcelink-80257.appspot.com",
+  messagingSenderId: "249943715055",
+  appId: "1:249943715055:web:03022ed87d6a42acdcbf1a"
+};
+
+// Initialize app
+firebase.initializeApp(firebaseConfig);
+
+const loginForm = document.getElementById("loginForm");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+
+// Submit event
+loginForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+  const db = firebase.database();
+
+  // Check role helper function
+  const checkRole = (path, role, redirectTo) => {
+    return db.ref(path).once('value').then((snapshot) => {
+      const users = snapshot.val();
+      for (const key in users) {
+        const user = users[key];
+        if (user.email === email) {
+          alert(`Login successful as ${role}`);
+          // Redirect immediately
+          window.location.href = redirectTo;
+          return true;
+        }
+      }
+      return false;
+    });
   };
-  
-  firebase.initializeApp(firebaseConfig);
-  
-  const loginForm = document.getElementById("loginForm");
-  const emailInput = document.getElementById("email");
-  const passwordInput = document.getElementById("password");
-  
-  loginForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-  
-    const enteredEmail = emailInput.value.trim();
-    const enteredPassword = passwordInput.value.trim();
-    const db = firebase.database();
-  
-    // Define a helper to check a role
-    const checkRole = (path, role, redirectTo) => {
-      return db.ref(path).once('value').then((snapshot) => {
-        const users = snapshot.val();
-        for (const key in users) {
-          const user = users[key];
-          if (user.email === enteredEmail && user.password === enteredPassword) {
-            alert(`Login successful as ${role}`);
-            // Redirect immediately
-            window.location.href = redirectTo;
-            return true;
+
+  // Firebase authentication
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      // 👇 Check clients and providers in sequence
+      checkRole("clients", "client", "searchpage.html").then((matchedClient) => {
+        if (matchedClient) return;
+        return checkRole("providers", "provider", "homepage.html").then((matchedProvider) => {
+          if (!matchedProvider) {
+            alert("Incorrect email or password.");
           }
-        }
-        return false;
-      });
-    };
-  
-    // 👇 Check clients and providers in sequence
-    checkRole("clients", "client", "searchpage.html").then((matchedClient) => {
-      if (matchedClient) return;
-      return checkRole("providers", "provider", "homepage.html").then((matchedProvider) => {
-        if (!matchedProvider) {
-          alert("Incorrect email or password.");
-        }
-      });
-    }).catch((error) => {
+        });
+      })
+    })
+    .catch((error) => {
+      // failed to sign-in
       console.error("Login error:", error);
       alert("Something went wrong during login.");
     });
-  });
-  
+
+});

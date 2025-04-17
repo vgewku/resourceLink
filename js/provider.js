@@ -98,6 +98,7 @@ function submitDataProvider() {
         window.location.href = 'payment.html'; // Redirect to the payment page after successful submission
     })
     .catch((error) => {
+        console.error(error)
         alert('Failed to save provider information. ' + error.message);
     });
 }

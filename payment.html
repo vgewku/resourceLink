@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
     <link rel="stylesheet" href="css/payment.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=AdMEJkU2WYGqHmW34EITi0gnGEX3ejrJ2JhUTVyDqyKWmmqLFQ7aOqU4P7pi9xMFFKOL2eAcxYw93seZ"></script>
+    
+
 </head>
 <body>
     <div class="container">
@@ -22,13 +25,18 @@
             </div>
             <div class="paypal">
                 <h1>Pay with Paypal</h1>
-                <button class="paypal-button">Paypal Integration</button>
+                <div id="paypal-button-container"></div>
+                
             </div>
         </div>
         <div class="buttons">
-            <button class="back">Back</button>
-            <button class="create">Create Account</button>
+            <button><a href="provider_account.html" class="back">Back</a></button>
+            <button class="create">
+                <a href="homepage.html" style="text-decoration: none; color: inherit;">Create Account</a>
+            </button>
+            
         </div>
     </div>
+    <script src="js/payment.js"></script>
 </body>
 </html>

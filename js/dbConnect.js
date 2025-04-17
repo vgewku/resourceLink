@@ -2,6 +2,7 @@ const express = require('express');
 const admin = require('firebase-admin');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const fetch = require('node-fetch');
 
 // Initialize Express app
 const app = express();
@@ -102,6 +103,52 @@ const providerDB = db.ref('providers');
     res.status(500).json({ message: 'Error in creating Provider or storing Provider.', error: error.message });
    }
  });
+
+
+//Payment
+
+
+
+
+
+
+const CLIENT_ID = 'AdMEJkU2WYGqHmW34EITi0gnGEX3ejrJ2JhUTVyDqyKWmmqLFQ7aOqU4P7pi9xMFFKOL2eAcxYw93seZ';
+const CLIENT_SECRET = 'EKARZG3fZCvEyfHry2ed-zlsF3mkSn17hLZxCv1j5q_tYOSxLFspgbHv04xmfugJIppuFpIPReoT85y_';
+
+app.post('/capture-order', async (req, res) => {
+    const { orderID } = req.body;
+
+    // Get OAuth token
+    const auth = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64');
+
+    const tokenRes = await fetch('https://api-m.sandbox.paypal.com/v1/oauth2/token', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Basic ${auth}`,
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'grant_type=client_credentials'
+    });
+
+    const { access_token } = await tokenRes.json();
+
+    // Capture order
+    const captureRes = await fetch(`https://api-m.sandbox.paypal.com/v2/checkout/orders/${orderID}/capture`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${access_token}`,
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const captureData = await captureRes.json();
+    res.json(captureData);
+});
+
+app.listen(3000, () => {
+    console.log('Server running on http://localhost:3000');
+});
+
 
 
 // Start the server

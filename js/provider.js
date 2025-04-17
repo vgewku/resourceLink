@@ -50,7 +50,8 @@ function submitDataProvider() {
 }
 */
 
-function submitDataProvider() {
+function submitDataProvider(event) {
+    event.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const organization = document.getElementById('organization').value;
@@ -97,8 +98,14 @@ function submitDataProvider() {
         alert(msg);
         window.location.href = 'payment.html'; // Redirect to the payment page after successful submission
     })
+
+
     .catch((error) => {
         console.error(error)
         alert('Failed to save provider information. ' + error.message);
     });
+
 }
+
+
+

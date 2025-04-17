@@ -45,17 +45,17 @@ button {
 }
 
 button {
-    background-color: black;
+    background-color:  #5f7d7d;
     color: white;
     border: none;
     cursor: pointer;
 }
 button:hover {
-    background-color: #e2e2e2; 
+    background-color:  #bbecec; 
   }
   
   button.active {
-    background-color: #808080; 
+    background-color: #99C1B9; 
     color: #fff; 
   }
 

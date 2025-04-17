@@ -19,6 +19,8 @@ admin.initializeApp({
 const db = admin.database();
 const clientDB = db.ref('clients');
 const providerDB = db.ref('providers');
+const reviewDB = db.ref('reviews');
+
 
 // Example: Endpoint to handle data submission (called from the frontend)
 // Submit data for Client
@@ -101,6 +103,35 @@ const providerDB = db.ref('providers');
     console.error("Error in creating Provider or storing Provider", error)
     res.status(500).json({ message: 'Error in creating Provider or storing Provider.', error: error.message });
    }
+ });
+
+ //Submit data for Reviews
+ app.post('/submit-review', async (req, res) => {
+  const { rating, reviewText, orgName, userName} = req.body;
+  const reviewData = {
+    rating: rating,
+    reviewText: reviewText,
+    orgName: orgName,
+    userName: userName
+  }
+
+  try{
+    //creating review in auth, push data to DB
+    reviewDB.push(reviewData, (error) => {
+      if (error) {
+        res.status(500).send('Error saving data');
+      } else {
+        console.log("Provider created on Firebase DB")
+        res.status(200).send('Provider was created succesfully');
+      }
+    })
+
+  }
+  catch (error){
+    console.error("Error in creating Review or storing Review", error)
+    res.status(500).json({ message: 'Error in creating Review or storing Review.', error: error.message });
+  }
+  
  });
 
 

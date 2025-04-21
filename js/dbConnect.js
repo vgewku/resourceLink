@@ -117,13 +117,12 @@ const reviewDB = db.ref('reviews');
   }
 
   try{
-    //creating review in auth, push data to DB
+    // creating review in DB
     reviewDB.push(reviewData, (error) => {
       if (error) {
-        res.status(500).send('Error saving data');
+        res.status(500).send('Error saving Review');
       } else {
-        console.log("Provider created on Firebase DB")
-        res.status(200).send('Provider was created succesfully');
+        res.status(200).send('Review was created succesfully');
       }
     })
 

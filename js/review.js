@@ -41,7 +41,7 @@ function highlightStars(rating) {
 //Review Submission
 function submitReview(){
     const rating = selectedRating;
-    const reviewText = document.getElementById('placeholder').value;
+    const reviewText = document.getElementById('reviewBox').value;
     const orgName = "OrgName";
     const userName = "User Name";
 
@@ -69,7 +69,7 @@ function submitReview(){
     })
     .catch((error) => {
         console.error(error)
-        alert('Failed to save provider information. ' + error.message);
+        alert('Failed to save Review. ' + error.message);
     });
 
 }

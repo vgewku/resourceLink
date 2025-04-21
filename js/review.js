@@ -9,6 +9,24 @@ const firebaseConfig = {
   appId: "1:249943715055:web:03022ed87d6a42acdcbf1a"
 };
 
+firebase.initializeApp(firebaseConfig);
+
+// Firebase Auth state listener
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    console.log(user)
+    console.log("User is signed in:", user.email); // You could set user info in localStorage or a global variable
+    
+    loadReviews();// Load reviews on page load
+  } else {
+    console.log("No user is signed in.");
+    window.location.href = "login.html"; // redirect suer to login page
+  }
+});
+
+// Consider moving the above code into new JS file: firebase-init.js
+// ------------------------------------------------------------------------------------------------
+
 //Review Star Functionality
 const stars = document.querySelectorAll('.star');
 const ratingDisplay = document.getElementById('ratingDisplay');
@@ -42,14 +60,13 @@ function highlightStars(rating) {
 function submitReview(){
     const rating = selectedRating;
     const reviewText = document.getElementById('reviewBox').value;
-    const orgName = "OrgName";
-    const userName = "User Name";
+    const user = firebase.auth().currentUser;
 
     const data = {
         rating,
         reviewText,
-        orgName,
-        userName
+        // orgName => will be retrieved from the backend
+        userName: user.email
     };
 
     fetch('http://localhost:3000/submit-review', {
@@ -105,5 +122,3 @@ function loadReviews() {
     });
 }
 
-// Load reviews on page load
-window.onload = loadReviews;

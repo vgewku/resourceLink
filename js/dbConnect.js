@@ -105,41 +105,49 @@ app.post('/submit-providers', async (req, res) => {
 
 //Submit data for Reviews
 app.post('/submit-review', async (req, res) => {
-  const { rating, reviewText, orgName, userName} = req.body;
-  const reviewData = {
-    rating: rating,
-    reviewText: reviewText,
-    orgName: orgName,
-    userName: userName
-  }
+  const { rating, reviewText, userName} = req.body;
+  
+  // retrieve user's orgName based on the user's email
+  console.log(userName)
+  providerDB.orderByChild('email').equalTo(userName).once('value', (snapshot) => {
+    if (!snapshot.exists()) {
+      return res.status(404).send('User not found');
+    }
 
-  try{
+    const userData = snapshot.val();
+    const userKey = Object.keys(userData)[0]; // Get the first user key
+    const user = userData[userKey];
+    const userOrgName = user.organization;
+
+    const reviewData = {
+      rating: rating,
+      reviewText: reviewText,
+      orgName: userOrgName,
+      userName: userName
+    };
+
     // creating review in DB
     reviewDB.push(reviewData, (error) => {
       if (error) {
+        console.error("Error in storing Review!", error)
         res.status(500).send('Error saving Review');
       } else {
         res.status(200).send('Review was created succesfully');
       }
     })
-
-  }
-  catch (error){
-    console.error("Error in creating Review or storing Review", error)
-    res.status(500).json({ message: 'Error in creating Review or storing Review.', error: error.message });
-  }   
+  });
 });
 
 // Fetch reviews from Firebase
 app.get('/reviews', async (req, res) => {
   try {
     const snapshot = await reviewDB.once('value'); // DB for reviews
-    const reviews = Object.values(snapshot.val());
+    const reviews = Object.values(snapshot.val() || {}); // const reviews = snapshot.val() == null ? [] : Object.values(snapshot.val());
     console.log("Reviews were retrieved")
     console.log(reviews)
       
     // Send reviews as response
-    res.status(200).json(reviews || []);
+    res.status(200).json(reviews);
   } catch (error) {
     console.error("Error fetching reviews:", error);
     res.status(500).json({ message: 'Failed to fetch reviews' });

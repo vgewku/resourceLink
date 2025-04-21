@@ -1,13 +1,13 @@
 //Firebase Frontend Configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDNTrGx7vfJDB6mQL7XBSPo2DqCSACVjDM",
-    authDomain: "resourcelink-80257.firebaseapp.com",
-    databaseURL: "https://resourcelink-80257-default-rtdb.firebaseio.com",
-    projectId: "resourcelink-80257",
-    storageBucket: "resourcelink-80257.firebasestorage.app",
-    messagingSenderId: "249943715055",
-    appId: "1:249943715055:web:03022ed87d6a42acdcbf1a"
-  };
+  apiKey: "AIzaSyDNTrGx7vfJDB6mQL7XBSPo2DqCSACVjDM",
+  authDomain: "resourcelink-80257.firebaseapp.com",
+  databaseURL: "https://resourcelink-80257-default-rtdb.firebaseio.com",
+  projectId: "resourcelink-80257",
+  storageBucket: "resourcelink-80257.firebasestorage.app",
+  messagingSenderId: "249943715055",
+  appId: "1:249943715055:web:03022ed87d6a42acdcbf1a"
+};
 
 //Review Star Functionality
 const stars = document.querySelectorAll('.star');
@@ -53,23 +53,57 @@ function submitReview(){
     };
 
     fetch('http://localhost:3000/submit-review', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
     })
     .then((response) => {
-        if (!response.ok) throw new Error("Network response was not ok.");
-        return response.text();
+      if (!response.ok) throw new Error("Network response was not ok.");
+      return response.text();
     })
     .then((msg) => {
-        alert(msg);
-        window.location.href = 'resourcesearch.html'; // stay on same page
+      alert(msg);
+      window.location.href = 'resourcesearch.html'; // stay on same page
     })
     .catch((error) => {
-        console.error(error)
-        alert('Failed to save Review. ' + error.message);
+      console.error(error)
+      alert('Failed to save Review. ' + error.message);
     });
-
 }
+
+// Load reviews from Backend server
+function loadReviews() {
+  fetch('http://localhost:3000/reviews')
+    .then(response => response.json())
+    .then(reviews => {
+      const reviewsList = document.getElementById('reviewsList');
+      reviewsList.innerHTML = '';
+      console.log(reviews.length + " Reviews were retrieved")
+      console.log(reviews)
+
+      if (reviews.length > 0) {
+        reviews.forEach(review => {
+          const reviewElement = document.createElement('div');
+          reviewElement.classList.add('review');
+
+          reviewElement.innerHTML = `
+            <p><strong>${review.userName}</strong> ${'★'.repeat(review.rating)}</p>
+            <p>Client Review: ${review.reviewText}</p>
+          `;
+
+          reviewsList.appendChild(reviewElement);
+        });
+      } else {
+          reviewsList.innerHTML = '<p>No reviews yet.</p>';
+      }
+    })
+    .catch(error => {
+      console.error('Failed to fetch reviews:', error);
+      alert('Failed to fetch reviews');
+    });
+}
+
+// Load reviews on page load
+window.onload = loadReviews;

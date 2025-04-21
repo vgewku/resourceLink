@@ -25,9 +25,9 @@ const reviewDB = db.ref('reviews');
 
 // Example: Endpoint to handle data submission (called from the frontend)
 // Submit data for Client
- app.post('/submit-data', async (req, res) => {
-   const { email, password, phoneNumber, dataConsent, ethnicity, gender, age, education, employmentStatus } = req.body; // Expecting JSON data from frontend
-   const clientData = {
+app.post('/submit-data', async (req, res) => {
+  const { email, password, phoneNumber, dataConsent, ethnicity, gender, age, education, employmentStatus } = req.body; // Expecting JSON data from frontend
+  const clientData = {
     email: email,
     phoneNumber: phoneNumber,
     dataConsent: dataConsent,
@@ -38,76 +38,73 @@ const reviewDB = db.ref('reviews');
     employmentStatus: employmentStatus
   };
 
-   try {
+  try {
     // Create a new user with Firebase Authentication
     const userRecord = await admin.auth().createUser({
       email: email,
       password: password,
     });
     console.log("Client created on Firebase Auth")
-    
+  
     // After creating user in auth, push data to DB
     clientDB.push(clientData, (error) => {
-        if (error) {
-          res.status(500).send('Error saving data');
-        } else {
-          console.log("Client created on Firebase DB")
-          res.status(200).send('Client was created succesfully');
-        }
+      if (error) {
+        res.status(500).send('Error saving data');
+      } else {
+        console.log("Client created on Firebase DB")
+        res.status(200).send('Client was created succesfully');
       }
-    )
-
-   } catch (error) {
+    })
+  } catch (error) {
     console.error("Error in creating Client or storing Client", error)
     res.status(500).json({ message: 'Error in creating Client or storing Client.', error: error.message });
-   }
- });
+  }
+});
 
- // Submit data for Providers
- app.post('/submit-providers', async (req, res) => {
-   const { email, password, organization, phone, bio, address, zip, city, state, country, resources, hours } = req.body; // Expecting JSON data from frontend
-   const providerData = {
-    email: email,
-    password: password,
-    organization: organization,
-    phone: phone,
-    bio: bio,
-    address: address,
-    zip: zip,
-    city: city,
-    state: state,
-    country: country,
-    resources: resources,
-    hours: hours
-   }
+// Submit data for Providers
+app.post('/submit-providers', async (req, res) => {
+  const { email, password, organization, phone, bio, address, zip, city, state, country, resources, hours } = req.body; // Expecting JSON data from frontend
+  const providerData = {
+  email: email,
+  password: password,
+  organization: organization,
+  phone: phone,
+  bio: bio,
+  address: address,
+  zip: zip,
+  city: city,
+  state: state,
+  country: country,
+  resources: resources,
+  hours: hours
+  }
 
-   try {
+  try {
     // Create a new user with Firebase Authentication
     const userRecord = await admin.auth().createUser({
       email: email,
       password: password,
     });
     console.log("Provider created on Firebase Auth")
-    
+  
     // After creating user in auth, push data to DB
     providerDB.push(providerData, (error) => {
-        if (error) {
-          res.status(500).send('Error saving data');
-        } else {
-          console.log("Provider created on Firebase DB")
-          res.status(200).send('Provider was created succesfully');
-        }
+      if (error) {
+        res.status(500).send('Error saving data');
+      } else {
+        console.log("Provider created on Firebase DB")
+        res.status(200).send('Provider was created succesfully');
       }
-    )
+    })
 
-   } catch (error) {
+  } catch (error) {
     console.error("Error in creating Provider or storing Provider", error)
     res.status(500).json({ message: 'Error in creating Provider or storing Provider.', error: error.message });
-   }
- });
+  }
+});
 
- //Submit data for Reviews
- app.post('/submit-review', async (req, res) => {
+//Submit data for Reviews
+app.post('/submit-review', async (req, res) => {
   const { rating, reviewText, orgName, userName} = req.body;
   const reviewData = {
     rating: rating,
@@ -130,18 +127,27 @@ const reviewDB = db.ref('reviews');
   catch (error){
     console.error("Error in creating Review or storing Review", error)
     res.status(500).json({ message: 'Error in creating Review or storing Review.', error: error.message });
+  }   
+});
+
+// Fetch reviews from Firebase
+app.get('/reviews', async (req, res) => {
+  try {
+    const snapshot = await reviewDB.once('value'); // DB for reviews
+    const reviews = Object.values(snapshot.val());
+    console.log("Reviews were retrieved")
+    console.log(reviews)
+      
+    // Send reviews as response
+    res.status(200).json(reviews || []);
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+    res.status(500).json({ message: 'Failed to fetch reviews' });
   }
-  
- });
+})
 
 
 //Payment
-
-
-
-
-
-
 const CLIENT_ID = 'AdMEJkU2WYGqHmW34EITi0gnGEX3ejrJ2JhUTVyDqyKWmmqLFQ7aOqU4P7pi9xMFFKOL2eAcxYw93seZ';
 const CLIENT_SECRET = 'EKARZG3fZCvEyfHry2ed-zlsF3mkSn17hLZxCv1j5q_tYOSxLFspgbHv04xmfugJIppuFpIPReoT85y_';
 

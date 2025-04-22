@@ -86,3 +86,8 @@ body {
   span{
     font-weight: normal;
   }
+
+  #status{
+    color: #1d9797;
+    font-weight: bold;
+  }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Resource Search</title>
+  <title>Search Page</title>
   <link rel="stylesheet" href="css/SearchPage.css" />
 </head>
 <body>
@@ -21,20 +21,26 @@
     <div class="sidebar">
       <div class="filter-section">
         <h4>Availability</h4>
-        <label><input type="checkbox"> 8am - 10am</label><br>
-        <label><input type="checkbox"> 10am - 12pm</label><br>
-        <label><input type="checkbox"> 12pm - 2pm</label><br>
-        <label><input type="checkbox"> 2pm - 4pm</label><br>
-        <label><input type="checkbox"> 4pm - 6pm</label>
+        <label><input type="checkbox"> 08:00 - 09:59</label><br>
+        <label><input type="checkbox"> 10:00 - 11:59</label><br>
+        <label><input type="checkbox"> 12:00 - 13:59</label><br>
+        <label><input type="checkbox"> 14:00 - 15:59</label><br>
+        <label><input type="checkbox"> 16:00 - 18:00</label>
       </div>
 
       <div class="filter-section">
         <h4>Location</h4>
-        <label><input type="checkbox"> West End</label><br>
+        <label><input type="checkbox"> Adams Morgan</label><br>
+        <label><input type="checkbox"> Anacostia</label><br>
         <label><input type="checkbox"> Capitol Hill</label><br>
         <label><input type="checkbox"> Chinatown</label><br>
+        <label><input type="checkbox"> Columbia Heights</label><br>
+        <label><input type="checkbox"> Dupont Circle</label><br>
+        <label><input type="checkbox"> Ivy City</label><br>
+        <label><input type="checkbox"> Mount Vernon Square</label><br>
+        <label><input type="checkbox"> Navy Yard</label><br>
         <label><input type="checkbox"> Penn Quarter</label><br>
-        <label><input type="checkbox"> Navy Yard</label>
+        <label><input type="checkbox"> West End</label>
       </div>
 
       <div class="filter-section">
@@ -46,6 +52,7 @@
         <label><input type="checkbox"> Other</label>
       </div>
 
+      <!--
       <div class="filter-section">
         <h4>Saved Searches</h4>
         <label><input type="checkbox"> Saved search 1</label><br>
@@ -54,13 +61,29 @@
         <label><input type="checkbox"> Saved search 4</label><br>
         <label><input type="checkbox"> Saved search 5</label>
       </div>
-
+      
       <button class="save-button">Save Search</button>
+
+      -->
     </div>
 
     <div class="main">
       <h2>Find resources near you!</h2>
+
+      <div class="provider">
+        <label for="providerName">Provider Name: </label>
+        <span id="providerName">###</span><br><br>
+        <label for="neighborhood">Neighborhood:</label>
+        <span id="neighborhood">###</span><br>
+        <label for="resources">Resources: </label>
+        <span id="resources">###</span><br>
+        <label for="bio">Bio: </label>
+        <span id="bio">###</span><br>
+      </div>
     </div>
+    
+    
+
   </div>
 
 </body>

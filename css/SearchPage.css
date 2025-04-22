@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f4ef;
   }
+
   
   .navbar {
     background-color: #de8799;
@@ -60,6 +61,14 @@ body {
   .main {
     padding: 20px;
   }
+
+  .provider {
+    margin-top: 50px;
+    padding: 5px;
+    width: 1100px;
+    height: auto;
+    border: 2px solid #de8799; 
+  }
   
   .save-button {
     margin-top: 10px;
@@ -68,4 +77,12 @@ body {
     color: white;
     border: none;
     cursor: pointer;
+  }
+
+  .provider{
+    font-weight: bold;
+  }
+
+  span{
+    font-weight: normal;
   }

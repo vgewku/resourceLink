@@ -57,16 +57,25 @@ function submitDataProvider(event) {
     const organization = document.getElementById('organization').value;
     const phone = document.getElementById('phone').value;
     const bio = document.getElementById('bio').value;
-    const address = document.getElementById('address').value;
-    const zip = document.getElementById('zip').value;
-    const city = document.getElementById('city').value;
-    const state = document.getElementById('state').value;
-    const country = document.getElementById('country').value;
+    const neighborhood = document.getElementById('neighborhood').value;
     const resources = [];
     document.querySelectorAll('input[name="resource"]:checked').forEach((checkbox) => {
         resources.push(checkbox.value);
     });
-    const hours = document.getElementById('hours').value;
+    const monOpen = document.getElementById('monday_open').value;
+    const monClose = document.getElementById('monday_close').value;
+    const tueOpen = document.getElementById('tuesday_open').value;
+    const tueClose = document.getElementById('tuesday_close').value;
+    const wedOpen = document.getElementById('wednesday_open').value;
+    const wedClose = document.getElementById('wednesday_close').value;
+    const thurOpen = document.getElementById('thursday_open').value;
+    const thurClose = document.getElementById('thursday_close').value;
+    const friOpen = document.getElementById('friday_open').value;
+    const friClose = document.getElementById('friday_close').value;
+    const satOpen = document.getElementById('saturday_open').value;
+    const satClose = document.getElementById('saturday_close').value;
+    const sunOpen = document.getElementById('sunday_open').value;
+    const sunClose = document.getElementById('sunday_close').value;
 
     const data = {
         email,
@@ -74,13 +83,22 @@ function submitDataProvider(event) {
         organization,
         phone,
         bio,
-        address,
-        zip,
-        city,
-        state,
-        country,
+        neighborhood,
         resources,
-        hours
+        monOpen,
+        monClose,
+        tueOpen,
+        tueClose,
+        wedOpen,
+        wedClose,
+        thurOpen,
+        thurClose,
+        friOpen,
+        friClose,
+        satOpen,
+        satClose,
+        sunOpen,
+        sunClose
     };
 
     fetch('http://localhost:3000/submit-providers', {

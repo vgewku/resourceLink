@@ -63,20 +63,29 @@ app.post('/submit-data', async (req, res) => {
 
 // Submit data for Providers
 app.post('/submit-providers', async (req, res) => {
-  const { email, password, organization, phone, bio, address, zip, city, state, country, resources, hours } = req.body; // Expecting JSON data from frontend
+  const { email, password, organization, phone, bio, neighborhood, resources, monOpen, monClose, tueOpen, tueClose, wedOpen, wedClose, thurOpen, thurClose, friOpen, friClose, satOpen, satClose, sunOpen, sunClose  } = req.body; // Expecting JSON data from frontend
   const providerData = {
   email: email,
   password: password,
   organization: organization,
   phone: phone,
   bio: bio,
-  address: address,
-  zip: zip,
-  city: city,
-  state: state,
-  country: country,
+  neighborhood: neighborhood,
   resources: resources,
-  hours: hours
+  monOpen: monOpen,
+  monClose: monClose,
+  tueOpen: tueOpen,
+  tueClose: tueClose,
+  wedOpen: wedOpen,
+  wedClose: wedClose,
+  thurOpen: thurOpen,
+  thurClose: thurClose,
+  friOpen: friOpen,
+  friClose: friClose,
+  satOpen: satOpen,
+  satClose: satClose,
+  sunOpen: sunOpen,
+  sunClose: sunClose
   }
 
   try {

@@ -203,6 +203,54 @@ app.listen(3000, () => {
 });
 
 
+//update Provider Information
+app.post('/update-provider', async (req, res) => {
+  const { uid, email, organization, phone, bio, neighborhood, resources, acceptingClients, hours } = req.body;
+
+  try {
+    // Find provider by UID
+    const snapshot = await providerDB.orderByChild('email').equalTo(email).once('value');
+    if (!snapshot.exists()) {
+      return res.status(404).send({ message: 'Provider not found' });
+    }
+
+    const key = Object.keys(snapshot.val())[0];
+
+    // Update provider data
+    await providerDB.child(key).update({
+      organization, phone, bio, neighborhood, resources, acceptingClients, hours
+    });
+
+    res.status(200).send({ message: 'Provider updated successfully' });
+  } catch (error) {
+    console.error('Error updating provider:', error);
+    res.status(500).send({ message: 'Error updating provider', error: error.message });
+  }
+});
+
+//Update Client Information
+app.post('/update-client', async (req, res) => {
+  const { uid, email, phone, bio, ethnicity, gender, age, education, employment } = req.body;
+
+  try {
+      const snapshot = await clientDB.orderByChild('email').equalTo(email).once('value');
+      if (!snapshot.exists()) {
+          return res.status(404).send({ message: 'Client not found' });
+      }
+
+      const key = Object.keys(snapshot.val())[0];
+
+      await clientDB.child(key).update({
+          phone, bio, ethnicity, gender, age, education, employment
+      });
+
+      res.status(200).send({ message: 'Client updated successfully' });
+  } catch (error) {
+      console.error('Error updating client:', error);
+      res.status(500).send({ message: 'Error updating client', error: error.message });
+  }
+});
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;

@@ -1,0 +1,89 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f4ef;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.form-container {
+    width: 90%;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+}
+
+.form-header h1 {
+    text-align: center;
+    color: #d48b94;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.info-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.column {
+    flex: 1;
+    min-width: 250px;
+    margin: 0 10px;
+}
+
+.column label {
+    display: block;
+    margin: 12px 0 5px;
+    font-weight: 600;
+}
+
+.column input[type="text"],
+.column input[type="tel"],
+.column input[type="password"],
+.column textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fdfdfd;
+}
+
+.column .checkbox-group,
+.gender,
+.age,
+.day-row {
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.form-footer button,
+.form-footer a {
+    padding: 12px 24px;
+    background-color: #7e9a9a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.form-footer button:hover,
+.form-footer a:hover {
+    background-color: #5f7d7d;
+}

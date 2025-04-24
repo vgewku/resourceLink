@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #F2D0A9;
+    background-color: #f9f4ef;
     margin: 0;
     padding: 0;
 }
@@ -9,13 +9,13 @@ body {
     width: 80%;
     margin: 50px auto;
     padding: 20px;
-    background: #F2D0A9;
+    background: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #d48b94;
 }
 
 .form {
@@ -67,21 +67,31 @@ h1 {
     flex-grow: 1; 
     white-space: nowrap; 
 }
-.back, .create {
-    padding: 10px 20px;
-    background-color: #000000;
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 40%;
-    display: inline-block;
+
+.form-footer {
+    text-align: center;
     margin-top: 20px;
 }
 
-.create {
-    background-color: #555;
-    float: right;
+.form-footer button {
+    padding: 10px 20px;
+    background-color: #7e9a9a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
 }
+
+.form-footer a {
+    padding: 10px 20px;
+    background-color: #7e9a9a;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
 
 fieldset {
     border: none;

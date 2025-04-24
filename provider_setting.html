@@ -3,20 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Provider Create Account</title>
-<link rel="stylesheet" href="css/provider.css">
+<title>Provider Settings</title>
+<link rel="stylesheet" href="css/provider_setting.css">
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
-<script src="js/provider.js"></script>
+<script src="js/provider_setting.js"></script>
 </head>
 <body>
     <div class="form-container">
         <div class="form-content">
             <div class="form-header">
-                <h1>Enter Provider Information</h1>
+                <h1>Provider Settings</h1>
             </div> 
             <form action="#" method="post">
+
+                
                 <div class="info-section">
+                    
                     <div class="column">
                         <label><b>Personal Information</b></label>
                         <label for="email">Email</label>
@@ -87,23 +90,6 @@
                                 <input type="time" id="sunday_open" name="sunday_open"> to
                                 <input type="time" id="sunday_close" name="sunday_close">
                               </div>
-                            
-                            <!--
-                            <label for="mon">Monday</label>
-                            <input type="text" id="mon" name="mon" placeholder="00:00 to 00:00" multiple>
-                            <label for="mon">Tuesday</label>
-                            <input type="text" id="tue" name="tue" placeholder="00:00 to 00:00" multiple>
-                            <label for="mon">Wednesday</label>
-                            <input type="text" id="wed" name="wed" placeholder="00:00 to 00:00" multiple>
-                            <label for="mon">Thursday</label>
-                            <input type="text" id="thur" name="thur" placeholder="00:00 to 00:00" multiple>
-                            <label for="mon">Friday</label>
-                            <input type="text" id="fri" name="fri" placeholder="00:00 to 00:00" multiple>
-                            <label for="mon">Saturday</label>
-                            <input type="text" id="sat" name="sat" placeholder="00:00 to 00:00" multiple>
-                            <label for="mon">Sunday</label>
-                            <input type="text" id="sun" name="sun" placeholder="00:00 to 00:00" multiple>
-                            -->
                     </div>
 
 
@@ -116,12 +102,20 @@
                             <label for="clothing">Clothing Drive</label><input type="checkbox" id="clothing" name="resource" value="clothing"> 
                             <label for="other">Other</label><input type="checkbox" id="other" name="resource" value="other"> 
                         </div>
-                </div>
+
+                        <div class="accepting-clients">
+                            <legend><b>Accepting New Clients?</b></legend>
+                            <label><input type="radio" name="client-accepting" value="Yes">Yes</label>
+                            <label><input type="radio" name="client-accepting" value="No">No</label>
+                        </div>
+                    </div>
+
+                  
                 </div>
 
                 <div class="form-footer">
-                    <button><a href="create_account.html" class="back">Back</a></button>
-                    <button type="button" class="payment" onclick="submitDataProvider(event)">Continue to payment</button>
+                    <button type="button" class="logout" onclick="">Log Out</button>
+                    <button type="button" class="update" onclick="">Save Changes</button>
                 </div>
             
             </form>

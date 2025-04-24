@@ -61,11 +61,12 @@ function submitReview(){
     const rating = selectedRating;
     const reviewText = document.getElementById('reviewBox').value;
     const user = firebase.auth().currentUser;
+    const providerOrgName = "RiseWell"; //TODO: this is hard coded provider name
 
     const data = {
         rating,
         reviewText,
-        // orgName => will be retrieved from the backend
+        providerOrgName, // will be retrieved from the previous page
         userName: user.email
     };
 

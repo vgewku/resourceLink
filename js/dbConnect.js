@@ -114,11 +114,11 @@ app.post('/submit-providers', async (req, res) => {
 
 //Submit data for Reviews
 app.post('/submit-review', async (req, res) => {
-  const { rating, reviewText, userName} = req.body;
+  const { rating, reviewText, userName, providerOrgName} = req.body;
   
-  // retrieve user's orgName based on the user's email
+  // retrieve provider's orgName based on the user's email
   console.log(userName)
-  providerDB.orderByChild('email').equalTo(userName).once('value', (snapshot) => {
+  clientDB.orderByChild('email').equalTo(userName).once('value', (snapshot) => {
     if (!snapshot.exists()) {
       return res.status(404).send('User not found');
     }
@@ -126,12 +126,11 @@ app.post('/submit-review', async (req, res) => {
     const userData = snapshot.val();
     const userKey = Object.keys(userData)[0]; // Get the first user key
     const user = userData[userKey];
-    const userOrgName = user.organization;
 
     const reviewData = {
       rating: rating,
       reviewText: reviewText,
-      orgName: userOrgName,
+      orgName: providerOrgName,
       userName: userName
     };
 

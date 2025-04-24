@@ -70,14 +70,4 @@ body {
 .form-footer a {
     padding: 10px 20px;
     background-color: #7e9a9a;
-    color: white;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-}
-
-
-.form-footer button:hover,
-.form-footer a:hover {
-    background-color: #5f7d7d;
-}
+    color: w

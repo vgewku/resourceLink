@@ -205,26 +205,18 @@ app.listen(3000, () => {
 
 //update Provider Information
 app.post('/update-provider', async (req, res) => {
-  const { uid, email, organization, phone, bio, neighborhood, resources, acceptingClients, hours } = req.body;
-
+  const { uid, email, ...providerData } = req.body;
   try {
-    // Find provider by UID
-    const snapshot = await providerDB.orderByChild('email').equalTo(email).once('value');
-    if (!snapshot.exists()) {
-      return res.status(404).send({ message: 'Provider not found' });
-    }
-
-    const key = Object.keys(snapshot.val())[0];
-
-    // Update provider data
-    await providerDB.child(key).update({
-      organization, phone, bio, neighborhood, resources, acceptingClients, hours
-    });
-
-    res.status(200).send({ message: 'Provider updated successfully' });
+      const snapshot = await providerDB.orderByChild('email').equalTo(email).once('value');
+      if (!snapshot.exists()) {
+          return res.status(404).send({ message: 'Provider not found' });
+      }
+      const key = Object.keys(snapshot.val())[0];
+      await providerDB.child(key).update(providerData);
+      res.status(200).send({ message: 'Provider updated successfully' });
   } catch (error) {
-    console.error('Error updating provider:', error);
-    res.status(500).send({ message: 'Error updating provider', error: error.message });
+      console.error('Error updating provider:', error);
+      res.status(500).send({ message: 'Error updating provider', error: error.message });
   }
 });
 

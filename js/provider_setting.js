@@ -1,3 +1,16 @@
+
+function logout() {
+    firebase.auth().signOut()
+    .then(() => {
+        alert("Logged out successfully!");
+        window.location.href = "login.html";  // Redirect to login page
+    })
+    .catch((error) => {
+        console.error("Logout error:", error);
+        alert("Failed to log out.");
+    });
+}
+
 function updateProviderInfo() {
     const user = firebase.auth().currentUser;
     if (!user) {
@@ -53,6 +66,5 @@ function updateProviderInfo() {
     });
   }
   
-  // Hook up update button
-  document.querySelector(".update:nth-of-type(2)").addEventListener("click", updateProviderInfo);
+
   

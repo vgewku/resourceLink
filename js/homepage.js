@@ -39,4 +39,12 @@ firebase.auth().onAuthStateChanged((user) => {
                 for (const key in providers) {
                     if (providers[key].email === email) {
                         window.location.href = 'provider_setting.html';  // Redirect for providers
-             
+                        return;
+                    }
+                }
+
+                alert("Role not found.");
+            });
+        });
+    });
+});

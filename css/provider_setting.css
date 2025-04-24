@@ -70,4 +70,12 @@ body {
 .form-footer a {
     padding: 10px 20px;
     background-color: #7e9a9a;
-    color: w
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}

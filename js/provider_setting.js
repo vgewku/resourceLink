@@ -35,36 +35,4 @@ function updateProviderInfo() {
         wedOpen: document.getElementById('wednesday_open').value,
         wedClose: document.getElementById('wednesday_close').value,
         thursOpen: document.getElementById('thursday_open').value,
-        thursClose: document.getElementById('thursday_close').value,
-        friOpen: document.getElementById('friday_open').value,
-        friClose: document.getElementById('friday_close').value,
-        satOpen: document.getElementById('saturday_open').value,
-        satClose: document.getElementById('saturday_close').value,
-        sunOpen: document.getElementById('sunday_open').value,
-        sunClose: document.getElementById('sunday_close').value,
-      }
-    };
-
-    // Send data to backend
-    fetch('http://localhost:3000/update-provider', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        uid: user.uid,  // Identify provider
-        ...providerData
-      })
-    })
-    .then(res => res.json())
-    .then(data => {
-      alert("Information updated successfully!");
-    })
-    .catch(err => {
-      console.error('Error updating info:', err);
-      alert("Failed to update info.");
-    });
-  }
-  
-
-  
+        thursClose: document.getElementById('thursday_cl

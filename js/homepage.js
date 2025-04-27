@@ -18,6 +18,8 @@ firebase.auth().onAuthStateChanged((user) => {
     if (!user) {
         console.log("No user logged in.");
         return;
+    } else {
+        console.log(user + "is logged in")
     }
 
     userIcon.addEventListener('click', () => {

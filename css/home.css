@@ -17,6 +17,12 @@ header {
     padding: 15px 30px;
 }
 
+button {
+    border: none; 
+    background: none; 
+    padding: 0;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;

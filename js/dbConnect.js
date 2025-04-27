@@ -204,14 +204,18 @@ app.listen(3000, () => {
 
 //update Provider Information
 app.post('/update-provider', async (req, res) => {
-  const { uid, email, ...providerData } = req.body;
+  console.log(req.body)
+  const { email } = req.body;
+  delete req.body.email
+  console.log(req.body)
+
   try {
       const snapshot = await providerDB.orderByChild('email').equalTo(email).once('value');
       if (!snapshot.exists()) {
           return res.status(404).send({ message: 'Provider not found' });
       }
       const key = Object.keys(snapshot.val())[0];
-      await providerDB.child(key).update(providerData);
+      await providerDB.child(key).update(req.body);
       res.status(200).send({ message: 'Provider updated successfully' });
   } catch (error) {
       console.error('Error updating provider:', error);
@@ -221,20 +225,20 @@ app.post('/update-provider', async (req, res) => {
 
 //Update Client Information
 app.post('/update-client', async (req, res) => {
-  const { uid, email, phone, bio, ethnicity, gender, age, education, employment } = req.body;
+  console.log(req.body)
+  const { client_email } = req.body;
+  delete req.body.client_email
+  console.log(req.body)
 
   try {
-      const snapshot = await clientDB.orderByChild('email').equalTo(email).once('value');
+      const snapshot = await clientDB.orderByChild('email').equalTo(client_email).once('value');
       if (!snapshot.exists()) {
           return res.status(404).send({ message: 'Client not found' });
       }
 
       const key = Object.keys(snapshot.val())[0];
 
-      await clientDB.child(key).update({
-          phone, bio, ethnicity, gender, age, education, employment
-      });
-
+      await clientDB.child(key).update(req.body);
       res.status(200).send({ message: 'Client updated successfully' });
   } catch (error) {
       console.error('Error updating client:', error);

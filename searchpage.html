@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <title>Search Page</title>
   <link rel="stylesheet" href="css/SearchPage.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script defer src="js/searchPage.js"></script>
+
 </head>
 <body>
 
@@ -22,35 +27,35 @@
       <form id="filterForm">
       <div class="filter-section">
         <h4>Availability</h4>
-        <label><input type="checkbox"> 08:00 - 09:59</label><br>
-        <label><input type="checkbox"> 10:00 - 11:59</label><br>
-        <label><input type="checkbox"> 12:00 - 13:59</label><br>
-        <label><input type="checkbox"> 14:00 - 15:59</label><br>
-        <label><input type="checkbox"> 16:00 - 18:00</label>
+        <label><input type="checkbox" name="availability" value="08:00 - 09:59"> 08:00 - 09:59</label><br>
+        <label><input type="checkbox" name="availability" value="10:00 - 11:59"> 10:00 - 11:59</label><br>
+        <label><input type="checkbox" name="availability" value="12:00 - 13:59"> 12:00 - 13:59</label><br>
+        <label><input type="checkbox" name="availability" value="14:00 - 15:59"> 14:00 - 15:59</label><br>
+        <label><input type="checkbox" name="availability" value="16:00 - 18:00"> 16:00 - 18:00</label>
       </div>
 
       <div class="filter-section">
         <h4>Location</h4>
-        <label><input type="checkbox"> Adams Morgan</label><br>
-        <label><input type="checkbox"> Anacostia</label><br>
-        <label><input type="checkbox"> Capitol Hill</label><br>
-        <label><input type="checkbox"> Chinatown</label><br>
-        <label><input type="checkbox"> Columbia Heights</label><br>
-        <label><input type="checkbox"> Dupont Circle</label><br>
-        <label><input type="checkbox"> Ivy City</label><br>
-        <label><input type="checkbox"> Mount Vernon Square</label><br>
-        <label><input type="checkbox"> Navy Yard</label><br>
-        <label><input type="checkbox"> Penn Quarter</label><br>
-        <label><input type="checkbox"> West End</label>
+        <label><input type="checkbox" name="location" value="Adams Morgan"> Adams Morgan</label><br>
+        <label><input type="checkbox" name="location" value="Anacostia"> Anacostia</label><br>
+        <label><input type="checkbox" name="location" value="Capitol Hill"> Capitol Hill</label><br>
+        <label><input type="checkbox" name="location" value="Chinatown"> Chinatown</label><br>
+        <label><input type="checkbox" name="location" value="Columbia Heights"> Columbia Heights</label><br>
+        <label><input type="checkbox" name="location" value="Dupont Circle"> Dupont Circle</label><br>
+        <label><input type="checkbox" name="location" value="Ivy City"> Ivy City</label><br>
+        <label><input type="checkbox" name="location" value="Mount Vernon Square"> Mount Vernon Square</label><br>
+        <label><input type="checkbox" name="location" value="Navy Yard"> Navy Yard</label><br>
+        <label><input type="checkbox" name="location" value="Penn Quarter"> Penn Quarter</label><br>
+        <label><input type="checkbox" name="location" value="West End"> West End</label>
       </div>
 
       <div class="filter-section">
         <h4>Resource Type</h4>
-        <label><input type="checkbox"> Food Pantry</label><br>
-        <label><input type="checkbox"> Financial/Legal Services</label><br>
-        <label><input type="checkbox"> Child Care</label><br>
-        <label><input type="checkbox"> Clothing</label><br>
-        <label><input type="checkbox"> Other</label>
+        <label><input type="checkbox" name="resource" value="Food Pantry"> Food Pantry</label><br>
+        <label><input type="checkbox" name="resource" value="Financial/Legal Services"> Financial/Legal Services</label><br>
+        <label><input type="checkbox" name="resource" value="Child Care"> Child Care</label><br>
+        <label><input type="checkbox" name="resource" value="Clothing"> Clothing</label><br>
+        <label><input type="checkbox" name="resource" value="Other"> Other</label>
       </div>
 
       <!--
@@ -63,14 +68,15 @@
         <label><input type="checkbox"> Saved search 5</label>
       </div>
     -->
-      <button class="submit-button">Submit Search</button>
+      <button class="submit-button" type="button" id="submitBtn">Submit Search</button>
     </form>
 
+    
     </div>
-
     <div class="main">
       <h2>Find resources near you!</h2>
-
+      <div id="providers_container"></div>
+      <!--
       <div class="provider">
         <label for="providerName">Provider Name: </label>
         <span id="providerName">###</span><br><br>
@@ -83,10 +89,9 @@
         <label for="status">Accepting Clients: </label>
         <span id="status">###</span><br>
       </div>
-    </div>
-    
-    
 
+      -->
+    </div>  
   </div>
 
 </body>

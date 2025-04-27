@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/client_setting.css">
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
-<script src="js/client_setting.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
 </head>
 <body>
     <div class="form-container">
@@ -18,121 +18,52 @@
             <form action="#" method="post">
                 <div class="info-section">
                     <div class="column">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" name="email">
-
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password">
-
                         <label for="phone">Phone number</label>
                         <input type="tel" id="phone" name="phone">
-        
-                        <label for="bio">Clients Biography</label>
-                        <textarea id="bio" name="bio" placeholder="Add provider bio..."></textarea>
-                    </div>
-                    <div class="column">
-                            <label><b>Demographic of Information</b></label>
-                            <div class="day-row">
-                                <label><strong>Ethnicity</strong></label>
-                                <input type="radio" id="monday_open" name="monday_open"> White/Caucasian
-                              </div>
-                              <div class="day-row">
-                                <input type="radio" id="monday_open" name="monday_open"> Asian
-                              </div>
-                              <div class="day-row">
-                                <input type="radio" id="monday_open" name="monday_open"> Hispanic/Latino
-                              </div>
-                              <div class="day-row">
-                                <input type="radio" id="monday_open" name="monday_open"> African American
-                              </div>
-                              <div class="day-row">
-                                <input type="radio" id="monday_open" name="monday_open"> Native Hawaiian/Pacific Islander
-                              </div>
-                              <div class="day-row">
-                                <input type="radio" id="monday_open" name="monday_open"> Native American
-                              </div>
-                              <div class="day-row">
-                                <input type="radio" id="monday_open" name="monday_open"> Other/Prefer not to answer
-                              </div>
-
-                            <div class="gender">
-                                <label><strong>Gender</strong></label>
-                                <input type="radio" id="monday_open" name="monday_open"> Male
-                            </div>
-                            <div class="gender">
-                                <input type="radio" id="monday_open" name="monday_open"> Female
-                            </div>
-                            <div class="gender">
-                                <input type="radio" id="monday_open" name="monday_open"> Other/Prefer not to answer
-                            </div>
-
-                            <div class="age">
-                                <label><strong>Age</strong></labeL>
-                                <input type="radio" id="monday_open" name="monday_open"> Under 18
-                            </div>
-                            <div class="age">
-                                <input type="radio" id="monday_open" name="monday_open"> 18-30
-                            </div>
-                            <div class="age">
-                                <input type="radio" id="monday_open" name="monday_open"> 31-50
-                            </div>
-                            <div class="age">
-                                <input type="radio" id="monday_open" name="monday_open"> 51+
-                            </div>
-                            <div class="age">
-                                <input type="radio" id="monday_open" name="monday_open"> Prefer not to answer
-                            </div>
-                    </div>
-
-                    <div class="column">
+                        <label><b>Demographic of Information</b></label>
+                        <div class="day-row"><label><strong>Ethnicity</strong></label><input type="radio" id="ethnicity_white_caucasian" name="ethnicity" value="White/Caucasian"> White/Caucasian</div>
+                        <div class="day-row"><input type="radio" id="ethnicity_asian" name="ethnicity" value="Asian"> Asian</div>
+                        <div class="day-row"><input type="radio" id="ethnicity_hispanic_latino" name="ethnicity" value="Hispanic/Latino"> Hispanic/Latino</div>
+                        <div class="day-row"><input type="radio" id="ethnicity_african_american" name="ethnicity" value="African American"> African American</div>
+                        <div class="day-row"><input type="radio" id="ethnicity_native_hawaiian_pacific_islander" name="ethnicity" value="Navtive Hawaiian/Pacfic Islander"> Native Hawaiian/Pacific Islander</div>
+                        <div class="day-row"><input type="radio" id="ethnicity_native_american" name="ethnicity" value="Native American"> Native American</div>
+                        <div class="day-row"><input type="radio" id="ethnicity_other_prefer_not_to_answer" name="ethnicity" value="Other/Prefer not to answer"> Other/Prefer not to answer</div>
                         
-                        <div class="checkbox-group">
-                            <label><strong>Education</strong></label>
-                            <input type="radio"> Less than high school
-                        </div>
-                        <div class="checkbox-group">
-                            <input type="radio">Bachelors Degree
-                        </div>
-                        <div class="checkbox-group">
-                            <input type="radio">Masters/Professional Degree
-                        </div>
-                        <div class="checkbox-group">
-                            <input type="radio">Technical Certification
-                        </div>
-                        <div class="checkbox-group">
-                            <input type="radio">Other/Prefer not to say
-                        </div>
+                        <div class="gender"><label><strong>Gender</strong></label><input type="radio" id="gender_male" name="gender" value="Male"> Male</div>
+                        <div class="gender"><input type="radio" id="gender_female" name="gender" value="Female"> Female</div>
+                        <div class="gender"><input type="radio" id="gender_other_prefer_not_to_answer" name="gender" value="Other/Prefer not to answer"> Other/Prefer not to answer</div>
+                        
+                        <div class="age"><label><strong>Age</strong></label><input type="radio" id="age_under_18" name="age" value="Under 18"> Under 18</div>
+                        <div class="age"><input type="radio" id="age_18_30" name="age" value="18-30"> 18-30</div>
+                        <div class="age"><input type="radio" id="age_31_50" name="age" value="31-50"> 31-50</div>
+                        <div class="age"><input type="radio" id="age_51_plus" name="age" value="51+"> 51+</div>
+                        <div class="age"><input type="radio" id="age_prefer_not_to_answer" name="age" value="Prefer not to answer"> Prefer not to answer</div>
+                    </div>
+
+                    <div class="column">                        
+                        <div class="checkbox-group"><label><strong>Education</strong></label><input type="radio" name="education" value="Less than high school"> Less than high school</div>
+                        <div class="checkbox-group"><input type="radio" name="education" value="Bachelors Degree">Bachelors Degree</div>
+                        <div class="checkbox-group"><input type="radio" name="education" value="Masters/Professional Degree">Masters/Professional Degree</div>
+                        <div class="checkbox-group"><input type="radio" name="education" value="Technical Certification">Technical Certification</div>
+                        <div class="checkbox-group"><input type="radio" name="education" value="Other/Prefer not to say">Other/Prefer not to say</div>
                     
-                    
-                        <div class="checkbox-group" style="margin-top: 25px;">
-                            <label><strong>Employment</strong></label>
-                            <input type="radio"> Full Time
-                        </div>
-                        <div class="checkbox-group">
-                            <input type="radio"> Part Time
-                        </div>
-                        <div class="checkbox-group">
-                            <input type="radio"> Contract
-                        </div>
-                        <div class="checkbox-group">
-                            <input type="radio"> Retired
-                        </div>
-                        <div class="checkbox-group">
-                            <input type="radio"> Unemployed/ Unable to Work
-                        </div>
-                        <div class="checkbox-group">
-                            <input type="radio"> Other/Prefer not to say
-                        </div>
+                        <div class="checkbox-group" style="margin-top: 25px;"> <label><strong>Employment</strong></label> <input type="radio" value="Full Time"> Full Time</div>
+                        <div class="checkbox-group"><input type="radio" name="employment" value="Part Time"> Part Time</div>
+                        <div class="checkbox-group"><input type="radio" name="employment" value="Contract"> Contract</div>
+                        <div class="checkbox-group"><input type="radio" name="employment" value="Retired"> Retired</div>
+                        <div class="checkbox-group"><input type="radio" name="employment" value="Unemployed/ Unable to Work"> Unemployed/ Unable to Work</div>
+                        <div class="checkbox-group"><input type="radio" name="employment" value="Other/Prefer not to say"> Other/Prefer not to say</div>
                     </div>                    
                 </div>
 
                 <div class="form-footer">
                     <button type="button" class="logout" onclick="">Log Out</button>
-                    <button type="button" class="update" onclick="updateClientInfo()">Save Changes</button>
+                    <button type="button" class="update">Save Changes</button>
                 </div>
             
             </form>
         </div>
     </div>
 </body>
+<script src="js/client_setting.js"></script>
 </html>

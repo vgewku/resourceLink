@@ -61,7 +61,7 @@ nav {
 
 /* adjust the width */
 .org-details {
-    max-width: 45%;
+    width: 55%;
     padding: 20px;
     background-color: #F5EDE0;
    

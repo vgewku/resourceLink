@@ -106,44 +106,58 @@ function fetchFilteredData(availability, locations, resources) {
                 // Get the opening and closing times for today
                 const openTime = provider[`${currentDay}Open`]; // e.g., "08:00"
                 const closeTime = provider[`${currentDay}Close`]; // e.g., "18:00"        
-                if (openTime && closeTime) {
-                    // Convert open/close times to minutes
+                
+                if (openTime && closeTime && availability && availability.length > 0) {
                     const openTimeInMinutes = timeToMinutes(openTime);
                     const closeTimeInMinutes = timeToMinutes(closeTime);
 
-                    console.log(currentTimeInMinutes);
-                    console.log(openTimeInMinutes);
-                    console.log(closeTimeInMinutes);
-        
-                    // Check if current time is within the open/close range
-                    if (currentTimeInMinutes >= openTimeInMinutes && currentTimeInMinutes <= closeTimeInMinutes) {
-                        is_available = true
+                    // --- NEW AVAILABILITY RANGE HANDLING ---
+                    let earliestStart = Infinity;
+                    let latestEnd = -Infinity;
+
+                    availability.forEach(range => {
+                        const [start, end] = range.split(' - ');
+                        const startInMinutes = timeToMinutes(start.trim());
+                        const endInMinutes = timeToMinutes(end.trim());
+
+                        if (startInMinutes < earliestStart) {
+                            earliestStart = startInMinutes;
+                        }
+                        if (endInMinutes > latestEnd) {
+                            latestEnd = endInMinutes;
+                        }
+                    });
+
+                    console.log(`Provider Open/Close: ${openTime}-${closeTime}`);
+                    console.log(`Selected Availability Range: ${earliestStart} to ${latestEnd} (in minutes)`);
+
+                    // Check if the entire selected range is inside provider's open/close times
+                    if (earliestStart >= openTimeInMinutes && latestEnd <= closeTimeInMinutes) {
+                        is_available = true;
                     }
+                    // --- END OF NEW AVAILABILITY HANDLING ---
                 }
 
                 // Check if provider offers selected resources
-                // resources => selected resources
-                // provider.resources => provider resources
-                // as long as 1 resource is provided by the provider, i want to show the provider
-                for (let r of provider.resources) {  // Use 'for...of' to iterate over values in the array
-                    if (resources.includes(r)) {  // Use 'includes()' to check if the value is in the resources array
+                for (let r of provider.resources) {
+                    if (resources.includes(r)) {
                         has_resources = true;
                         break;
                     }
                 }
 
-                // check if provider neighbourhood is in selected locations
+                // Check if provider neighborhood is in selected locations
                 if (locations.length === 0 || locations.includes(provider.neighborhood)) {
-                    is_location = true
+                    is_location = true;
                 }
 
-                // Check ALL filters
+                // Final combined filter
                 if (is_available && is_location && has_resources) {
                     filteredProviders.push(provider);
-                    console.log("provider found & pushed")
+                    console.log("provider found & pushed");
                 }
             }
-        
+
             console.log(filteredProviders);
             if (filteredProviders.length > 0) {
                 displayProviders(filteredProviders);
@@ -151,39 +165,52 @@ function fetchFilteredData(availability, locations, resources) {
                 document.getElementById("providers_container").innerHTML = "No results found.";
             }
         } else {
-          document.getElementById("providers_container").innerHTML = "No results found.";
+            document.getElementById("providers_container").innerHTML = "No results found.";
         }
     });
 }
 
     // This function will be responsible for displaying the filtered providers
-function displayProviders(filteredProviders) {
-    const providersContainer = document.getElementById("providers_container");
-  
-    // Clear previous results if any
-    providersContainer.innerHTML = '';
-  
-    // Check if there are any filtered providers to display
-    if (filteredProviders.length > 0) {
-      filteredProviders.forEach(provider => {
-        const providerDiv = document.createElement("div");
-        providerDiv.classList.add("provider");
-  
-        // Add provider details to the container
-        providerDiv.innerHTML = `
-          <div class="provider-item">
-            <h3>${provider.organization}</h3>
-            <p><strong>Neighborhood:</strong> ${provider.neighborhood}</p>
-            <p><strong>Available Resources:</strong> ${provider.resources.join(', ')}</p>
-            <p><strong>Status:</strong> ${provider.acceptingClients ? 'Accepting Clients' : 'Not Accepting Clients'}</p>
-            <p><strong>Bio:</strong> ${provider.bio || 'No bio available'}</p>
-          </div>
-        `;
-  
-        providersContainer.appendChild(providerDiv);
-      });
-    } else {
-      providersContainer.innerHTML = "No results found.";
+    function displayProviders(filteredProviders) {
+        const providersContainer = document.getElementById("providers_container");
+      
+        // Clear previous results if any
+        providersContainer.innerHTML = '';
+      
+        // Check if there are any filtered providers to display
+        if (filteredProviders.length > 0) {
+            filteredProviders.forEach(provider => {
+                const providerDiv = document.createElement("div");
+                providerDiv.classList.add("provider");
+    
+                // Add provider details to the container
+                providerDiv.innerHTML = `
+                    <div class="provider-item">
+                        <h3 class="providerName">${provider.organization}</h3>
+                        <p><strong>Neighborhood:</strong> ${provider.neighborhood}</p>
+                        <p><strong>Available Resources:</strong> ${provider.resources.join(', ')}</p>
+                        <p><strong>Status:</strong> ${provider.acceptingClients ? 'Accepting Clients' : 'Not Accepting Clients'}</p>
+                        <p><strong>Bio:</strong> ${provider.bio || 'No bio available'}</p>
+                    </div>
+                `;
+    
+                // Add click listener for each provider div
+                providerDiv.addEventListener("click", function() {
+                    console.log("Provider Name: ", provider.organization);
+                    goToNextPage(provider.organization);  // Send the correct provider name to the next page
+                });
+    
+                providersContainer.appendChild(providerDiv);
+            });
+        } else {
+            providersContainer.innerHTML = "No results found.";
+        }
     }
-  }
+
+    function goToNextPage(providerName) {
+        window.location.href = `resourcesearch.html?providerName=${encodeURIComponent(providerName)}`;
+    }
+
+
+
   

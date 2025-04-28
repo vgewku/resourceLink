@@ -146,21 +146,29 @@ app.post('/submit-review', async (req, res) => {
   });
 });
 
-// Fetch reviews from Firebase
+// Fetch reviews from Firebase, filtered by provider
 app.get('/reviews', async (req, res) => {
   try {
+    const providerName = req.query.providerName; // Get the provider from query parameter
+    if (!providerName) {
+      return res.status(400).json({ message: 'Provider name is required' });
+    }
+
+    // Filter reviews by the provider name
     const snapshot = await reviewDB.once('value'); // DB for reviews
-    const reviews = Object.values(snapshot.val() || {}); // const reviews = snapshot.val() == null ? [] : Object.values(snapshot.val());
-    console.log("Reviews were retrieved")
-    console.log(reviews)
-      
-    // Send reviews as response
+    let reviews = snapshot.val() || {};
+    reviews = Object.values(reviews).filter(review => review.orgName === providerName);
+    console.log("Reviews for provider " + providerName + " were retrieved");
+    console.log(reviews);
+
+    // Send filtered reviews as response
     res.status(200).json(reviews);
   } catch (error) {
     console.error("Error fetching reviews:", error);
     res.status(500).json({ message: 'Failed to fetch reviews' });
   }
-})
+});
+
 
 
 //Payment

@@ -134,9 +134,6 @@ function fetchFilteredData(availability, locations, resources) {
                 var is_available = false
                 var is_location = false
                 var has_resources = false
-
-                console.log(provider)
-                console.log(currentDay);
                 
                 // Check ALL filters (availability, location, and resources) if they are selected
 
@@ -166,9 +163,6 @@ function fetchFilteredData(availability, locations, resources) {
                         }
                     });
 
-                    console.log(`Provider Open/Close: ${openTime}-${closeTime}`);
-                    console.log(`Selected Availability Range: ${earliestStart} to ${latestEnd} (in minutes)`);
-
                     // Check if the entire selected range is inside provider's open/close times
                     if (earliestStart >= openTimeInMinutes && latestEnd <= closeTimeInMinutes) {
                         is_available = true;
@@ -177,6 +171,8 @@ function fetchFilteredData(availability, locations, resources) {
                 }
 
                 // Check if provider offers selected resources
+                console.log(provider.resources)
+                console.log(resources)
                 for (let r of provider.resources) {
                     if (resources.includes(r)) {
                         has_resources = true;
@@ -192,7 +188,14 @@ function fetchFilteredData(availability, locations, resources) {
                 // Final combined filter
                 if (is_available && is_location && has_resources) {
                     filteredProviders.push(provider);
+                    console.log(provider)
                     console.log("provider found & pushed");
+                } else {
+                    console.log(provider)
+                    console.log("provider was NOT found & pushed");
+                    console.log(is_available)
+                    console.log(is_location)
+                    console.log(has_resources)
                 }
             }
 

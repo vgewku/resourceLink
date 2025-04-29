@@ -6,43 +6,47 @@
 <title>ResourceLink Account Creation</title>
 <link rel="stylesheet" href="css/create_account.css">
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 <script src="js/accountManagement.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="left-panel">
-        <div class="logo">
-            <img src="images/logo.png" alt="Company Logo">
-        </div>
-        <p>Bridging Gaps, Building Futures</p>
-    </div>
     <div class="right-panel">
         <form id="accountForm">
             <h1>Create an Account</h1>
+
             <div class="input-group">
                 <label>Are you registering as a provider or a client?</label>
-                <button type="button" id="provider" onclick="setRole('provider')">Provider</button>
-                <button type="button" id="client" onclick="setRole('client')">Client</button>
+                <div class="role-buttons">
+                    <button type="button" id="provider" onclick="setRole('provider')">Provider</button>
+                    <button type="button" id="client" onclick="setRole('client')">Client</button>
+                </div>
             </div>
+
             <!-- <div class="input-group">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
             </div>
+
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" required>
             </div> -->
+
             <div class="input-group">
-                <button type="button" onclick="submitAccount()">Create Account</button>
+                <button type="button" onclick="submitAccount()" class="login-btn">Create Account</button>
             </div>
-            
-            
-            <a href="login.html">Login to an existing account</a>
+
+            <div class="bottom-links">
+                <a href="login.html">Login to an existing account</a>
+            </div>
         </form>
     </div>
-</div>
 
+    <!-- Info Panel (Right side) -->
+    <div class="left-panel">
+        <div class="logo"><h2>ResourceLink</h2></div>
+        <p class="subtitle">Bridging Gaps, Building Futures</p>
+    </div>
+</div>
 </body>
 </html>

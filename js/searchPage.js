@@ -16,6 +16,44 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.database();
+const userIcon = document.getElementById('userIcon');
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (!user) {
+      console.log("No user logged in.");
+      return;
+  } else {
+      console.log(user + "is logged in")
+  }
+
+  userIcon.addEventListener('click', () => {
+      const email = user.email;
+
+      // Check clients first
+      db.ref('clients').once('value').then(snapshot => {
+          const clients = snapshot.val();
+          for (const key in clients) {
+              if (clients[key].email === email) {
+                  window.location.href = 'client_setting.html';  // Redirect for clients
+                  return;
+              }
+          }
+
+          // If not a client, check providers
+          db.ref('providers').once('value').then(snapshot => {
+              const providers = snapshot.val();
+              for (const key in providers) {
+                  if (providers[key].email === email) {
+                      window.location.href = 'provider_setting.html';  // Redirect for providers
+                      return;
+                  }
+              }
+
+              alert("Role not found.");
+          });
+      });
+  });
+});
 
 function logout() {
     firebase.auth().signOut()

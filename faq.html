@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQs - ResourceLink</title>
+    <link rel="stylesheet" href="css/faq.css" />
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">ResourceLink</div>
+        <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="SearchPage.html">Search</a>
+            <a href="contact.html">Contact</a>
+            <a href="faq.html" class="active">FAQ</a>
+            <img src="images/logo.png" alt="User Icon" style="background: white; border-radius: 50%; width: 32px; height: 32px;">
+        </div>
+    </nav>
+</header>
+
+<section class="faq-section">
+    <div class="faq-header">
+        <h2>Frequently Asked Questions</h2>
+        <input type="text" placeholder="Search question here..." class="faq-search" />
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">Is ResourceLink free to use for all users?</div>
+            <div class="faq-answer">Yes! ResourceLink is completely free for users searching for community resources.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I save a resource?</div>
+            <div class="faq-answer">When searching for resources, click "Save Search" to bookmark your preferred results.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How often is the information updated?</div>
+            <div class="faq-answer">We update information regularly in collaboration with our community partners.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I suggest a new organization?</div>
+            <div class="faq-answer">Absolutely! Please reach out via the Contact page to suggest a new resource.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I contact ResourceLink?</div>
+            <div class="faq-answer">You can navigate to the Contact Us section on the top and submit your questions.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do I need to create an account to use ResourceLink?</div>
+            <div class="faq-answer">Yes both clients and provider have to create an account to join ResourceLink platform.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can service providers register their services on ResourceLink?</div>
+            <div class="faq-answer">Yes, providers can register through the "Contact Us" page to be verified and added to our platform.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is there a mobile app available?</div>
+            <div class="faq-answer">We are currently working on a mobile app to make accessing resources even easier. Stay tuned!</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I reset my password?</div>
+            <div class="faq-answer">If you have an account, you can reset your password from the login page using the "Forgot Password" link.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What areas does ResourceLink currently cover?</div>
+            <div class="faq-answer">We currently serve major metro areas and are expanding. Check back often as new regions are added!</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can organizations update their own information?</div>
+            <div class="faq-answer">Yes! Registered organizations have dashboard access or navigate to their settings page on the top right to updates to their listings.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What types of resources can I find here?</div>
+            <div class="faq-answer">You can find food assistance, shelter, childcare, job support, legal aid, healthcare, and more.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I report incorrect or outdated information?</div>
+            <div class="faq-answer">If you find outdated listings or incorrect information, please report them via the feedback form available on the Contact Us page.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I share a resource with someone else?</div>
+            <div class="faq-answer">Yes! Please feel free to share to those who needs our platform</div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<script>
+const faqs = document.querySelectorAll(".faq-question");
+
+faqs.forEach(faq => {
+    faq.addEventListener("click", () => {
+        faq.classList.toggle("active");
+        faq.nextElementSibling.classList.toggle("active");
+    });
+});
+</script>
+
+<footer>
+    <p>© 2025 ResourceLink. All rights reserved.</p>
+</footer>
+
+
+</body>
+</html>

@@ -6,36 +6,48 @@ body {
 
   
   .navbar {
-    background-color: #de8799;
-    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+  }
+  
+  .logo {
+    font-size: 1.8em;
     font-weight: bold;
+    color: #d48b94;
   }
   
   .nav-links {
     display: flex;
+    align-items: center;
     gap: 20px;
   }
   
   .nav-links a {
-    color: white;
     text-decoration: none;
-    padding: 5px 10px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
   }
   
-  .nav-links a.active {
-    border-bottom: 2px solid black;
+  .nav-links a:hover {
+    color: #7e9a9a;
   }
-  
   .user-icon {
     background: white;
     border-radius: 50%;
     width: 32px;
     height: 32px;
   }
+
+  button {
+    border: none; 
+    background: none; 
+    padding: 0;
+}
   
   .container {
     display: flex;
@@ -91,3 +103,12 @@ body {
     color: #1d9797;
     font-weight: bold;
   }
+
+  footer {
+    background-color: #7e9a9a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}

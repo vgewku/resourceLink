@@ -64,6 +64,7 @@ function submitData() {
   })
   .then((msg) => {
     alert(msg);
+    window.location.href = 'login.html';
   })
   .catch((error) => {
     alert('Failed to save client data. ' + error.message);

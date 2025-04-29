@@ -227,7 +227,7 @@ function fetchFilteredData(availability, locations, resources) {
                         <h3 class="providerName">${provider.organization}</h3>
                         <p><strong>Neighborhood:</strong> ${provider.neighborhood}</p>
                         <p><strong>Available Resources:</strong> ${provider.resources.join(', ')}</p>
-                        <p><strong>Status:</strong> ${provider.acceptingClients ? 'Accepting Clients' : 'Not Accepting Clients'}</p>
+                        <p><strong>Accepting Clients:</strong> ${provider.acceptingClients || 'Yes'}</p>
                         <p><strong>Bio:</strong> ${provider.bio || 'No bio available'}</p>
                     </div>
                 `;

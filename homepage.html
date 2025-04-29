@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>ResourceLink</title>
     <link rel="stylesheet" href="css/home.css" />
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
-    <script src="js/homepage.js" defer></script>
-
 </head>
 <body>
     <header>
@@ -19,24 +14,33 @@
                 <a href="homepage.html" class="active">Home</a>
                 <a href="SearchPage.html">Search</a>
                 <a href="contact.html">Contact</a>
-                <div>
-                    <button id="userIcon">
-                    <img src="images/logo.png" alt="User Icon"  style="background: white; border-radius: 50%; width: 32px; height: 32px;">
-                    </button>
-                </div>
+
+                <img src="images/logo.png" alt="User Icon" style="background: white; border-radius: 50%; width: 32px; height: 32px;">
+
             </div>
         </nav>
     </header>
 
     <section class="hero">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="images/resource.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="hero-content">
-            <div class="logo-box">
-                <img src="images/logo.png" alt="Company Logo" />
-            </div>
             <h1>Bridging Gaps, Building Futures</h1>
-            <a href="login.html" class="resource-btn">Search for Resources</a>
-        </div>
+            <a href="SearchPage.html" class="resource-btn">Search for Resources</a>
+        </div> 
     </section>
+
+    <!-- <section class="featured-resources">
+        <h2>Featured Resources</h2>
+        <div class="resource-cards">
+            <div class="resource-card">Housing Assistance</div>
+            <div class="resource-card">Healthcare Services</div>
+            <div class="resource-card">Legal Aid</div>
+            <div class="resource-card">Mental Health Support</div>
+        </div>
+    </section> -->
 
     <section class="info-section">
         <div class="info-card">Food & Shelter</div>
@@ -54,5 +58,18 @@
         <h2>Commitment to Authenticity</h2>
         <p>Our platform simplifies the search for essential services by matching users with available resources in their area. Instead of endless calls and guesswork, people can quickly find the help they need, when they need it. <strong>For service providers, we offer a space to be seen and utilized, ensuring their impact reaches as many people as possible.</strong> Because when communities are connected, <strong>everyone benefits.</strong></p>
     </section>
+
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <ol>
+            <li><strong>Search </strong>by your needs and location.</li>
+            <li><strong>Get </strong> matched with real-time available resources.</li>
+            <li><strong> Connect</strong> directly to the service providers.</li>
+        </ol>
+    </section>
+
+    <footer>
+        <p>© 2025 ResourceLink. All rights reserved.</p>
+    </footer>
 </body>
 </html>

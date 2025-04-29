@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav>
+        <!-- <nav>
             <div class="nav-left">
                 <span class="logo">ResourceLink</span>
             </div>
@@ -19,7 +19,22 @@
                 <a href="homepage.html">Home</a>
                 <a href="SearchPage.html" class="active">Search</a>
                 <a href ="contact.html"> Contact</a>
+                <a href="faq.html">FAQ</a>
 
+            </div>
+        </nav> -->
+        <nav class="navbar">
+            <div class="logo">ResourceLink</div>
+            <div class="nav-links">
+                <a href="homepage.html">Home</a>
+                <a href="SearchPage.html" class="active">Search</a>
+                <a href="contact.html">Contact</a>
+                <a href="faq.html">FAQ</a>
+                <div>
+                  <button id="userIcon">
+                  <img src="images/logo.png" alt="User Icon"  style="border-radius: 50%; width: 32px; height: 32px;">
+                  </button>
+                </div>
             </div>
         </nav>
     </header>
@@ -31,24 +46,14 @@
         </div>
         -->
         <div class="org-details">
-            <h2>RiseWell</h2>
-            <p>Resource Type: Education</p>
-            <p>Phone Number: 012 345 6789</p>
-            <p>Address: 2121 1st St. NW<br>Washington DC 2052</p>
+            <h2 id="providerName"></h2>
+            <div id="additionalInfo"></div>
+            <!--
             <div class="rating">
                 <span>★★★★★</span> 483 Reviews
             </div>
-            <p>Provider bio: Empowering the community through accessible, high-quality resources that foster education, health, and economic opportunity. We believe that everyone—regardless of background or circumstance—deserves the tools to build a better future..</p>
-            <div class="hours">
-                <h3>Hours of Operation</h3>
-                <p>Monday: 9:00 to 20:00</p>
-                <p>Tuesday: 9:00 to 20:00</p>
-                <p>Wednesday: 9:00 to 20:00</p>
-                <p>Thursday: 9:00 to 20:00</p>
-                <p>Friday: 9:00 to 20:00</p>
-                <p>Saturday: 9:00 to 21:00</p>
-                <p>Sunday: 9:00 to 15:00</p>
-        </div>
+            -->
+           
             <div class="review-box">
                 <h3>Leave a Review:</h3>
                     <!-- Star Rating -->
@@ -66,7 +71,7 @@
                     <textarea id="reviewBox" placeholder="Write your review here..."></textarea>
                 
                     <!-- Submit Button -->
-                    <button onclick="submitReview()" type="submit">Submit Review</button>
+                    <button class="submit" onclick="submitReview()" type="submit">Submit Review</button>
             </div>
         </div>
     </section>
@@ -90,7 +95,9 @@
             <p>Client Review: Thanks to RiseWell, I have had the opportunity to find more educational resources for my children! However, I would like if they can expand more resources for the community!</p>
         </div>
     </section> -->
-
+    <footer>
+        <p>© 2025 ResourceLink. All rights reserved.</p>
+    </footer>
     <script src="js/review.js"></script>
 </body>
 </html>

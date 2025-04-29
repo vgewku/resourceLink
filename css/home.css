@@ -60,10 +60,37 @@ button {
 }
 
 .hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(to right, #fbe6d4, #f7f1e6);
+    position: relative;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;    
 }
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.7; /* Adjust this value (0 to 1) */
+}
+
+
 
 .logo-box img {
     width: 70px;
@@ -78,6 +105,7 @@ button {
 .hero h1 {
     font-size: 2.2em;
     margin-bottom: 20px;
+    color: white;
 }
 
 .resource-btn {
@@ -117,16 +145,17 @@ button {
     text-align: center;
 }
 
-.about, .commitment {
+.about, .commitment, .how-it-works {
     max-width: 800px;
     margin: 50px auto;
     padding: 30px 20px;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
 }
 
-.about h2, .commitment h2 {
+.about h2, .commitment h2, .how-it-works h2 {
     font-size: 1.8em;
     color: #d48b94;
     margin-bottom: 15px;
@@ -145,4 +174,20 @@ button {
 
 .contact-btn:hover {
     background-color: #5f7d7d;
+}
+
+.how-it-works ol {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 500px;
+    list-style-position: inside;
+}
+
+footer {
+    background-color: #7e9a9a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
 }

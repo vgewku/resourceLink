@@ -1,0 +1,129 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f4ef;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #d48b94;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #7e9a9a;
+}
+
+.faq-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.faq-header h2 {
+    font-size: 2em;
+    color: #d48b94;
+    margin-bottom: 20px;
+}
+
+.faq-search {
+    width: 60%;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+}
+
+.faq-container {
+    margin-top: 20px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.faq-question {
+    font-size: 1.2em;
+    color: #7e9a9a;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    padding-right: 20px;
+}
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    color: #7e9a9a;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.faq-question.active::after {
+    content: '-';
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-left: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+.faq-answer.active {
+    max-height: 300px;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #7e9a9a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}

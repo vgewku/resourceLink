@@ -58,6 +58,7 @@ document.querySelector('.update').addEventListener('click', () => {
     .then(res => res.json())
     .then(data => {
         alert("Client information updated successfully!");
+        window.location.href = "homepage.html";  // Redirect
         console.log(data);
     })
     .catch(err => {

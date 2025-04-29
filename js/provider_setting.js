@@ -75,6 +75,7 @@ function updateProviderInfo() {
     .then(res => {console.log(res); res.json()})
     .then(data => {
       alert("Information updated successfully!");
+      window.location.href = "homepage.html";  // Redirect
     })
     .catch(err => {
 

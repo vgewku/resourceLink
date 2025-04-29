@@ -73,8 +73,11 @@ button {
     z-index: 1;
     color: white;
     text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px; 
 }
-
 
 .background-video {
     position: absolute;
@@ -102,6 +105,7 @@ button {
 .hero h1 {
     font-size: 2.2em;
     margin-bottom: 20px;
+    color: white;
 }
 
 .resource-btn {

@@ -60,10 +60,34 @@ button {
 }
 
 .hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(to right, #fbe6d4, #f7f1e6);
+    position: relative;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;    
 }
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+}
+
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.7; /* Adjust this value (0 to 1) */
+}
+
+
 
 .logo-box img {
     width: 70px;
@@ -117,16 +141,17 @@ button {
     text-align: center;
 }
 
-.about, .commitment {
+.about, .commitment, .how-it-works {
     max-width: 800px;
     margin: 50px auto;
     padding: 30px 20px;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
 }
 
-.about h2, .commitment h2 {
+.about h2, .commitment h2, .how-it-works h2 {
     font-size: 1.8em;
     color: #d48b94;
     margin-bottom: 15px;
@@ -140,9 +165,4 @@ button {
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 6px;
-    transition: background-color 0.3s ease;
-}
-
-.contact-btn:hover {
-    background-color: #5f7d7d;
-}
+    transition: background-c

@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav>
+        <!-- <nav>
             <div class="nav-left">
                 <span class="logo">ResourceLink</span>
             </div>
@@ -19,7 +19,22 @@
                 <a href="homepage.html">Home</a>
                 <a href="SearchPage.html" class="active">Search</a>
                 <a href ="contact.html"> Contact</a>
+                <a href="faq.html">FAQ</a>
 
+            </div>
+        </nav> -->
+        <nav class="navbar">
+            <div class="logo">ResourceLink</div>
+            <div class="nav-links">
+                <a href="homepage.html">Home</a>
+                <a href="SearchPage.html" class="active">Search</a>
+                <a href="contact.html">Contact</a>
+                <a href="faq.html">FAQ</a>
+                <div>
+                  <button id="userIcon">
+                  <img src="images/logo.png" alt="User Icon"  style="border-radius: 50%; width: 32px; height: 32px;">
+                  </button>
+                </div>
             </div>
         </nav>
     </header>
@@ -66,7 +81,7 @@
                     <textarea id="reviewBox" placeholder="Write your review here..."></textarea>
                 
                     <!-- Submit Button -->
-                    <button onclick="submitReview()" type="submit">Submit Review</button>
+                    <button class="submit" onclick="submitReview()" type="submit">Submit Review</button>
             </div>
         </div>
     </section>
@@ -90,7 +105,9 @@
             <p>Client Review: Thanks to RiseWell, I have had the opportunity to find more educational resources for my children! However, I would like if they can expand more resources for the community!</p>
         </div>
     </section> -->
-
+    <footer>
+        <p>© 2025 ResourceLink. All rights reserved.</p>
+    </footer>
     <script src="js/review.js"></script>
 </body>
 </html>
